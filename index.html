@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Gabriel Muniz | Especialista em Landing Pages & Sites de Alta Conversão</title>
+    <meta name="description" content="Gabriel Muniz: Especialista na criação de Landing Pages de alta conversão e Sites Institucionais premium que transformam visitantes em clientes.">
+
+    <!-- ZenG Theme Styles -->
+    <link rel="stylesheet" type="text/css" href="/src/zeng/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/src/zeng/css/odometer.min.css">
+    <link rel="stylesheet" type="text/css" href="/src/zeng/css/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="/src/zeng/css/animateText.css">
+    <link rel="stylesheet" type="text/css" href="/src/zeng/css/styles.css">
+    <link rel="stylesheet" href="/src/zeng/font/fonts.css">
+    <link rel="stylesheet" type="text/css" href="/src/zeng/icons/icomoon/style.css">
+
+    <!-- Cyan Override -->
+    <link rel="stylesheet" href="/src/zeng-override.css">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="./src/img/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="./src/img/apple-touch-icon.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <meta name="theme-color" content="#111111">
+
+    <style>
+        /* Ajustes locais sobre o ZenG */
+        html { scroll-padding-top: 80px; }
+        body { overflow-x: hidden; }
+
+        .glass-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 60px rgba(2, 8, 23, 0.24);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+
+        /* Light mode overrides */
+        body {
+            --zen-bg: #111111;
+            --zen-text: #ffffff;
+            --zen-text-muted: rgba(255,255,255,0.5);
+            --zen-border: rgba(255,255,255,0.06);
+            --zen-card-bg: rgba(255,255,255,0.03);
+            --zen-card-border: rgba(255,255,255,0.08);
+        }
+        body { background-color: var(--zen-bg); color: var(--zen-text); }
+        body #wrapper { background-color: var(--zen-bg); }
+        body .bg_dark { background-color: var(--zen-bg); }
+
+        /* Menu vertical - sempre dark mode */
+        .nav-menu .nav_link {
+            color: rgba(255,255,255,0.95) !important;
+        }
+        .nav-menu .nav_link.active,
+        .nav-menu .nav_link:hover {
+            color: #22d3ee !important;
+        }
+        
+        /* Ícones do menu com melhor contraste */
+        .nav-menu .nav_link i,
+        .nav-menu .nav_link svg {
+            color: #22d3ee !important;
+        }
+        
+        /* Tooltips com mesma cor dos ícones */
+        .nav-menu .nav_link .tooltip {
+            color: #22d3ee !important;
+        }
+        body .list-icon li > * {
+            background: rgba(255,255,255,0.04) !important;
+            color: #e5e7eb !important;
+        }
+        body .list-icon li:hover > * {
+            background: #22d3ee !important;
+            color: #fff !important;
+        }
+        body .tf-btn.style-border {
+            border-color: rgba(255,255,255,0.1) !important;
+            color: #e5e7eb !important;
+        }
+        body .tf-btn.style-border:hover {
+            color: #fff !important;
+        }
+        body .img-style-avatar img {
+            border-color: #111111 !important;
+        }
+        body .tech-chip {
+            background: rgba(255,255,255,0.04) !important;
+            border-color: rgba(255,255,255,0.08) !important;
+            color: #e5e7eb !important;
+        }
+        body .tech-chip:hover {
+            border-color: rgba(34,211,238,0.4) !important;
+            background: rgba(34,211,238,0.08) !important;
+        }
+        body .resume-inner {
+            background: #1a1a1a !important;
+            border-color: rgba(255,255,255,0.08) !important;
+        }
+        body #resume-modal .img-style-avatar img {
+            border-color: #1a1a1a !important;
+        }
+        body #close-resume {
+            background: rgba(255,255,255,0.05) !important;
+            color: #e5e7eb !important;
+        }
+        body .item-shape { display: none !important; }
+        body .body-overlay { display: none !important; }
+
+        /* ====== Scroll Reveal Animations ====== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal-left.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal-right.revealed {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.85);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal-scale.revealed {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s !important; }
+        .reveal-delay-2 { transition-delay: 0.2s !important; }
+        .reveal-delay-3 { transition-delay: 0.3s !important; }
+        .reveal-delay-4 { transition-delay: 0.4s !important; }
+        .reveal-delay-5 { transition-delay: 0.5s !important; }
+
+        /* Stagger children */
+        .stagger-children .reveal:nth-child(1) { transition-delay: 0s; }
+        .stagger-children .reveal:nth-child(2) { transition-delay: 0.1s; }
+        .stagger-children .reveal:nth-child(3) { transition-delay: 0.2s; }
+        .stagger-children .reveal:nth-child(4) { transition-delay: 0.3s; }
+        .stagger-children .reveal:nth-child(5) { transition-delay: 0.4s; }
+        .stagger-children .reveal:nth-child(6) { transition-delay: 0.5s; }
+
+        /* Floating particles decoration */
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .floating-particles .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #22d3ee;
+            border-radius: 50%;
+            opacity: 0.15;
+            animation: float-particle linear infinite;
+        }
+        @keyframes float-particle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.15; }
+            90% { opacity: 0.15; }
+            100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Glow pulse on sections */
+        .section-glow {
+            position: relative;
+        }
+        .section-glow::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(34,211,238,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+            opacity: 0;
+        }
+        .section-glow:hover::after {
+            opacity: 1;
+        }
+
+        /* Image hover with reveal */
+        .img-reveal-hover {
+            position: relative;
+            overflow: hidden;
+        }
+        .img-reveal-hover::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(34,211,238,0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .img-reveal-hover:hover::after {
+            opacity: 1;
+        }
+        .img-reveal-hover:hover img {
+            transform: scale(1.03);
+        }
+        .img-reveal-hover img {
+            transition: transform 0.5s ease;
+        }
+
+        /* Gradient text animation */
+        .gradient-text {
+            background: linear-gradient(135deg, #22d3ee, #6366f1, #22d3ee);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 4s ease infinite;
+        }
+
+        /* Cursor glow effect */
+        .cursor-glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(34,211,238,0.06) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        body .cursor-glow { opacity: 1; }
+        
+        /* Portfolio Sticky Scroll Effect */
+        .portfolio-sticky-container {
+            position: relative;
+        }
+        
+        .portfolio-item {
+            position: sticky;
+            top: 100px;
+            margin-bottom: 40px;
+        }
+        
+        .portfolio-item:nth-child(1) { z-index: 10; }
+        .portfolio-item:nth-child(2) { z-index: 20; top: 120px; }
+        .portfolio-item:nth-child(3) { z-index: 30; top: 140px; }
+        
+        @media (max-width: 991px) {
+            .cursor-glow { display: none; }
+            .portfolio-item {
+                position: relative;
+                top: auto !important;
+                border-radius: 28px 28px 0 0;
+                margin-bottom: 24px;
+            }
+        }
+
+        /* Foto de perfil com borda gradiente */
+        .img-style-avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto;
+            padding: 3px;
+            background: linear-gradient(135deg, #22d3ee, #0ea5e9, #6366f1);
+        }
+
+        .img-style-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #111111;
+        }
+
+        /* Skills progress */
+        .skill-item { margin-bottom: 20px; }
+        .skill-header { display: flex; justify-content: space-between; margin-bottom: 6px; }
+        .skill-name { font-size: 14px; color: #e5e7eb; font-weight: 500; }
+        .skill-pct { font-size: 12px; color: #22d3ee; font-weight: 600; }
+        .skill-track { height: 6px; border-radius: 9999px; background: rgba(255,255,255,0.08); overflow: hidden; }
+        .skill-bar { height: 100%; border-radius: 9999px; background: linear-gradient(90deg, #0ea5e9, #22d3ee); width: 0; transition: width 1.2s ease-out; box-shadow: 0 0 10px rgba(34,211,238,0.3); }
+        .skill-bar.animate { width: var(--w); }
+
+        /* Stack icons nos tech cards */
+        .tech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+        .tech-chip { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 8px 12px; font-size: 12px; color: #e5e7eb; transition: all 0.3s; }
+        .tech-chip:hover { border-color: rgba(34,211,238,0.3); background: rgba(34,211,238,0.06); }
+        .tech-chip img { width: 18px; height: 18px; object-fit: contain; }
+
+        /* FAQ */
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .faq-toggle { width: 100%; background: none; border: none; padding: 20px 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left; color: #e5e7eb; transition: color 0.3s; }
+        .faq-toggle:hover { color: #22d3ee; }
+        .faq-icon { transition: transform 0.3s; color: #22d3ee; font-size: 12px; }
+        .faq-content { overflow: hidden; max-height: 0; transition: max-height 0.35s ease; }
+        .faq-content p { padding-bottom: 20px; font-size: 14px; color: rgba(229,231,235,0.7); line-height: 1.7; }
+
+        /* Modal currículo */
+        #resume-modal { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; padding: 20px; }
+        #resume-modal.open { display: flex; }
+        .resume-inner { background: #1a1a1a; border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; max-width: 680px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; }
+        .resume-inner::-webkit-scrollbar { width: 4px; }
+        .resume-inner::-webkit-scrollbar-thumb { background: rgba(34,211,238,0.3); border-radius: 10px; }
+
+        /* form inputs */
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-size: 13px; color: rgba(229,231,235,0.5); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .form-group input, .form-group textarea { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 14px 16px; color: #e5e7eb; font-size: 14px; outline: none; transition: border-color 0.3s; font-family: inherit; resize: none; }
+        .form-group input:focus, .form-group textarea:focus { border-color: rgba(34,211,238,0.4); }
+        .form-group textarea { height: 120px; }
+
+        /* Mobile header adjustments */
+        @media (max-width: 767px) {
+            .section.spacing-1 { padding-top: 50px !important; padding-bottom: 50px !important; }
+            .tech-grid { grid-template-columns: repeat(2, 1fr); }
+            .tabs-content-wrap {
+                display: grid;
+                gap: 24px;
+            }
+            .wrap-sw-button {
+                justify-content: center;
+                margin-top: 20px;
+            }
+            .bs-light-mode,
+            .resume-inner {
+                border-radius: 18px;
+            }
+        }
+
+
+        /* Typing cursor effect */
+        .typing::after {
+            content: '|';
+            animation: blink 1s infinite;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Enhanced card transitions */
+        .portfolio-item,
+        .service-item,
+        .testimonial-item {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Magnetic button base */
+        .tf-btn,
+        .btn-arrow {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Body load fade */
+        body { transition: opacity 0.5s ease; }
+
+        .portfolio-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 18px 0 14px;
+        }
+
+        .portfolio-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: #e5e7eb;
+            font-size: 12px;
+            line-height: 1;
+        }
+
+        .portfolio-meta img {
+            width: 16px;
+            height: 16px;
+            object-fit: contain;
+        }
+
+
+        .testimonial-head {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 24px;
+        }
+
+        .testimonial-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 20px;
+            overflow: hidden;
+            flex-shrink: 0;
+            padding: 2px;
+            background: linear-gradient(135deg, rgba(34,211,238,0.85), rgba(99,102,241,0.85));
+            box-shadow: 0 14px 35px rgba(34,211,238,0.2);
+        }
+
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+            display: block;
+            background: #0f172a;
+        }
+
+        .testimonial-head .athor {
+            min-width: 0;
+        }
+
+        .testimonial-head .name,
+        .testimonial-head .athor span {
+            display: block;
+        }
+
+        /* ================================================
+           RESPONSIVE — Mobile First Improvements
+           ================================================ */
+
+        /* Tablet & small desktop (≤ 991px) */
+        @media (max-width: 991px) {
+            .portfolio-item.glass-card {
+                padding: 20px !important;
+            }
+        }
+
+        /* Mobile (≤ 767px) */
+        @media (max-width: 767px) {
+
+            /* 0. Section About V2 — força coluna única (ZenG usa grid 2 colunas) */
+            .section-about.v2 {
+                display: block !important;
+                grid-template-columns: none !important;
+                grid-template-rows: none !important;
+            }
+            .section-about.v2 .heading-section,
+            .section-about.v2 h1.title,
+            .section-about.v2 > p,
+            .section-about.v2 .wrap-counter {
+                grid-column: auto !important;
+                grid-row: auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            /* 0b. Right-bar — oculta no mobile (fica sobreposta ao conteúdo) */
+            .right-bar {
+                display: none !important;
+            }
+
+            /* 1. Tipografia */
+            h1.title {
+                font-size: 26px !important;
+                line-height: 1.3 !important;
+                margin-bottom: 16px !important;
+            }
+            h4.animationtext,
+            h4.animationtext.clip {
+                font-size: 20px !important;
+                line-height: 1.3 !important;
+            }
+            h3 {
+                font-size: 22px !important;
+                line-height: 1.3 !important;
+            }
+            h5 {
+                font-size: 15px !important;
+            }
+            .heading-section {
+                margin-bottom: 24px !important;
+            }
+            .text_muted-color.mb_43 {
+                margin-bottom: 24px !important;
+            }
+
+            /* 2. About — primeiro section */
+            .first-section.section-about {
+                padding-top: 20px !important;
+            }
+
+            /* 3. About — counters */
+            .wrap-counter.tf-grid-layout {
+                gap: 10px !important;
+            }
+            .counter-item {
+                padding: 14px 10px !important;
+            }
+            .counter-number.h2 {
+                font-size: 28px !important;
+            }
+            .counter-item p.text-body-1 {
+                font-size: 11px !important;
+                line-height: 1.3 !important;
+            }
+
+            /* 4. Services — impede overflow dos títulos longos */
+            .service-item .content-inner > .content {
+                flex: 1 1 0 !important;
+                min-width: 0 !important;
+            }
+            .service-item .content-inner > .content h5 {
+                white-space: normal !important;
+                word-break: break-word !important;
+                font-size: 14px !important;
+                line-height: 1.35 !important;
+            }
+            .service-item .content-inner > .btn-arrow {
+                flex-shrink: 0 !important;
+                margin-left: 8px !important;
+            }
+            .service-item .content-inner {
+                gap: 10px !important;
+            }
+
+            /* 5. Portfolio */
+            .portfolio-item.glass-card {
+                padding: 16px !important;
+                border-radius: 16px !important;
+            }
+            .portfolio-item .img-style img {
+                width: 100% !important;
+                height: auto !important;
+            }
+            .portfolio-meta {
+                gap: 6px !important;
+            }
+            .portfolio-meta span {
+                font-size: 11px !important;
+                padding: 5px 9px !important;
+            }
+
+            /* 6. Testimonials */
+            .testimonial-item.glass-card {
+                padding: 20px !important;
+            }
+
+            /* 7. FAQ */
+            .faq-toggle {
+                font-size: 13px !important;
+                padding: 16px 0 !important;
+            }
+            .faq-toggle > span {
+                flex: 1 !important;
+                min-width: 0 !important;
+                padding-right: 10px !important;
+            }
+
+            /* 8. Contact — CTAs empilhados */
+            #contact .d-flex.flex-wrap.gap_20 {
+                flex-direction: column !important;
+                gap: 12px !important;
+                align-items: stretch !important;
+            }
+            #contact .d-flex.flex-wrap.gap_20 .tf-btn {
+                width: 100% !important;
+                justify-content: center !important;
+            }
+
+            /* 9. Contact — padding do form */
+            #contact .bs-light-mode {
+                padding: 20px !important;
+            }
+
+            /* 10. Contact — footer */
+            #contact > div:last-child {
+                margin-top: 40px !important;
+                padding-top: 28px !important;
+            }
+
+            /* 11. Tech chips */
+            .tech-chip {
+                font-size: 11px !important;
+                padding: 7px 10px !important;
+            }
+        }
+
+        /* Small mobile (≤ 480px) */
+        @media (max-width: 480px) {
+
+            /* Tipografia */
+            h1.title {
+                font-size: 22px !important;
+                line-height: 1.25 !important;
+            }
+            h4.animationtext,
+            h4.animationtext.clip {
+                font-size: 17px !important;
+            }
+            h3 {
+                font-size: 19px !important;
+            }
+
+            /* Counters — 3 itens em linha em telas muito pequenas */
+            .counter-number.h2 {
+                font-size: 22px !important;
+            }
+            .counter-item {
+                padding: 12px 6px !important;
+            }
+            .counter-item p.text-body-1 {
+                font-size: 10px !important;
+            }
+
+            /* Tech chips menores */
+            .tech-chip {
+                padding: 6px 7px !important;
+                font-size: 10px !important;
+                gap: 5px !important;
+            }
+            .tech-chip img {
+                width: 13px !important;
+                height: 13px !important;
+                flex-shrink: 0 !important;
+            }
+
+            /* Services — ainda menores */
+            .service-item .content-inner > .content h5 {
+                font-size: 13px !important;
+            }
+            .service-item .content-inner .number {
+                font-size: 10px !important;
+                white-space: nowrap !important;
+                margin-right: 6px !important;
+            }
+
+            /* Portfolio meta */
+            .portfolio-meta span {
+                font-size: 10px !important;
+                padding: 4px 7px !important;
+            }
+
+            /* Resume modal — header quebra em coluna */
+            .resume-inner > div:first-child {
+                padding: 18px !important;
+                flex-wrap: wrap !important;
+                gap: 12px !important;
+            }
+            .resume-inner > div:last-child {
+                padding: 18px !important;
+            }
+            .resume-inner > div:first-child > button {
+                margin-left: 0 !important;
+                align-self: flex-end !important;
+            }
+
+            /* Contact form */
+            #contact .bs-light-mode {
+                padding: 16px !important;
+            }
+
+            /* FAQ ainda menor */
+            .faq-toggle {
+                font-size: 12px !important;
+            }
+
+            /* Mobile header info text */
+            .header-sidebar .box .info .text-label {
+                font-size: 10px !important;
+                letter-spacing: 0.02em !important;
+            }
+            .header-sidebar .box .info h6 {
+                font-size: 14px !important;
+                margin-bottom: 2px !important;
+            }
+        }
+
+    </style>
+</head>
+
+<body class="counter-scroll" data-default-mode="dark">
+    <!-- Cursor glow effect -->
+    <div class="cursor-glow" id="cursor-glow"></div>
+
+    <!-- Floating particles -->
+    <div class="floating-particles" id="particles"></div>
+
+
+    <div id="wrapper" class="bg_dark counter-scroll">
+
+        <!-- Background Shape -->
+        <div class="body-overlay d-block">
+            <div class="bg-shape"></div>
+        </div>
+
+        <!-- ===================== MOBILE HEADER ===================== -->
+        <div class="header d-md-none">
+            <div class="header-sidebar style-vertical bs-light-mode">
+                                <ul class="nav-menu style-2 list-icon d-flex justify-content-around align-items-center">
+                    <li><a class="nav_link active" href="#about"><i class="icon icon-User"></i><span class="tooltip text-caption-1">Sobre</span></a></li>
+                    <li><a class="nav_link" href="#skills"><i class="icon icon-ReadCvLogo"></i><span class="tooltip text-caption-1">Habilidades</span></a></li>
+                    <li><a class="nav_link" href="#services"><i class="icon icon-GearFine"></i><span class="tooltip text-caption-1">Serviços</span></a></li>
+                    <li><a class="nav_link" href="#portfolio"><i class="icon icon-Briefcase"></i><span class="tooltip text-caption-1">Portfolio</span></a></li>
+                    <li><a class="nav_link" href="#testimonials"><i class="icon icon-quote"></i><span class="tooltip text-caption-1">Depoimentos</span></a></li>
+                    <li><a class="nav_link" href="#contact"><i class="icon icon-PaperPlaneTilt"></i><span class="tooltip text-caption-1">Contato</span></a></li>
+                </ul>
+                <a class="menu-button show-menu-mobile d-sm-none link-no-action" data-target="#menu-2" href="#"><i class="icon-CirclesFour"></i></a>
+                <div id="menu-2" class="popup-menu-mobile">
+                    <ul class="nav-menu style-3">
+                        <li class="text-menu text_white"><a href="#about" class="nav_link toggle link link-no-action text-button font-3 fw-6"><span>Sobre</span></a></li>
+                        <li class="text-menu text_white"><a href="#skills" class="nav_link toggle link link-no-action text-button font-3 fw-6"><span>Habilidades</span></a></li>
+                        <li class="text-menu text_white"><a href="#services" class="nav_link toggle link link-no-action text-button font-3 fw-6"><span>Serviços</span></a></li>
+                        <li class="text-menu text_white"><a href="#portfolio" class="nav_link toggle link link-no-action text-button font-3 fw-6"><span>Portfolio</span></a></li>
+                        <li class="text-menu text_white"><a href="#testimonials" class="nav_link toggle link link-no-action text-button font-3 fw-6"><span>Depoimentos</span></a></li>
+                        <li class="text-menu text_white"><a href="#contact" class="nav_link toggle link link-no-action text-button font-3 fw-6"><span>Contato</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================== MAIN CONTENT ===================== -->
+        <div class="wrap-main-content">
+            <div class="tf-container">
+
+                <!-- ===== USER BAR (Sidebar esquerda) ===== -->
+                <div class="user-bar userbar-fixed text-center bs-light-mode">
+                    <div class="box-author mb_12">
+                        <div class="img-style-avatar mb_16">
+                            <img src="./src/img/gabriel-muniz-perfil.png" alt="Gabriel Muniz">
+                        </div>
+                        <div class="info">
+                            <div class="name font-2 text_white mb_8">Gabriel Muniz</div>
+                            <div class="text-label text-uppercase fw-6 text_primary-color font-3 mb_16 letter-spacing-1">Landing Pages & Sites Premium</div>
+                            <a href="mailto:gabriel@gabrielmuniz.site" class="hover-underline-link text_white text-body-2 mb_4">gabriel@gabrielmuniz.site</a>
+                            <p class="text-caption-2 text_secondary-color font-3">Brasil, Home Office</p>
+                        </div>
+                    </div>
+
+                    <ul class="list-icon d-flex justify-content-center mb_28">
+                        <li><a href="https://linkedin.com/in/gabrielmunizdev" target="_blank" class="icon-LinkedIn"></a></li>
+                        <li><a href="https://github.com/gabrielmunizdev" target="_blank" class="icon-GitHub"></a></li>
+                        <li><a href="https://twitter.com/gabrielmuniz" target="_blank" class="icon-X"></a></li>
+                    </ul>
+
+                    <button id="open-resume" class="tf-btn btn-w-full style-border mb_20">
+                        <span class="bg_btn"></span>
+                        <span class="title"><i class="icon-ReadCvLogo"></i>Ver Currículo</span>
+                        <span class="effect-shine"></span>
+                    </button>
+
+                    <a href="https://wa.link/i3m1uw" target="_blank" class="tf-btn style-1 animate-hover-btn btn-glow-cyan align-self-center">
+                        <i class="icon-EnvelopeSimple"></i><span>Me Contrate</span>
+                    </a>
+
+                    <div class="item-shape">
+                        <img src="./src/img/gabriel-muniz-perfil.png" alt="" style="opacity:0;height:0;">
+                    </div>
+                </div>
+                <!-- ===== END USER BAR ===== -->
+
+                <div class="row">
+                    <div class="offset-xxl-4 col-xxl-7 offset-xl-4 col-xl-7">
+                        <div class="main-content section-onepage">
+
+                            <!-- ===== SECTION: ABOUT ===== -->
+                            <div id="about" class="section-about v2 spacing-1 section first-section parallax-bg">
+                                <div class="heading-section mb_45 reveal">
+                                    <div class="tag-heading text-uppercase text-label font-3 letter-spacing-1 mb_32">Sobre Mim</div>
+                                    <div class="title-border-shape">
+                                        <h4 class="animationtext clip">Olá! Eu sou <span class="tf-text s1 cd-words-wrapper text_primary-color">
+                                            <span class="item-text is-visible">Landing Pages</span>
+                                            <span class="item-text is-hidden">Sites Premium</span>
+                                            <span class="item-text is-hidden">Design de Conversão</span>
+                                        </span></h4>
+                                        <div class="shape">
+                                            <span class="shape-1"></span><span class="shape-2"></span>
+                                            <span class="shape-3"></span><span class="shape-4"></span>
+                                        </div>
+                                        <div class="line">
+                                            <span class="line-horizontal horizontal-1"></span>
+                                            <span class="line-horizontal horizontal-2"></span>
+                                            <span class="line-vertical vertical-1"></span>
+                                            <span class="line-vertical vertical-2"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h1 class="title mb_16 split-text effect-blur-fade reveal reveal-delay-1" data-splitting>
+                                    Landing Pages que Transformam Visitantes em Vendas
+                                </h1>
+                                <p class="text_muted-color font-3 mb_43 split-text split-lines-transform reveal reveal-delay-2">Crio sites institucionais ultra-rápidos e landing pages de alta conversão focadas em resultados reais. Pare de perder leads com sites genéricos — construo a presença online perfeita para o seu negócio: design premium, carregamento instantâneo e otimização total para conversão.</p>
+
+                                <div class="wrap-counter tf-grid-layout md-col-3 stagger-children">
+                                    <div class="counter-item bs-light-mode reveal">
+                                        <div class="counter-number h2 text_white mb_7">
+                                            <div class="odometer" data-number="87">1</div>
+                                            <span class="sub">+</span>
+                                        </div>
+                                        <p class="text-body-1 text_muted-color font-3">Projetos Entregues</p>
+                                        <div class="item-shape"><img src="/src/zeng/images/item/small-comet.webp" loading="lazy" decoding="async" alt="item"></div>
+                                    </div>
+                                    <div class="counter-item bs-light-mode reveal reveal-delay-1">
+                                        <div class="counter-number h2 text_white mb_7">
+                                            <div class="odometer" data-number="98">10</div>
+                                            <span class="sub">%</span>
+                                        </div>
+                                        <p class="text-body-1 text_muted-color font-3">Satisfação Clientes</p>
+                                        <div class="item-shape"><img src="/src/zeng/images/item/small-comet.webp" loading="lazy" decoding="async" alt="item"></div>
+                                    </div>
+                                    <div class="counter-item bs-light-mode reveal reveal-delay-2">
+                                        <div class="counter-number h2 text_white mb_7">
+                                            <div class="odometer" data-number="5">0</div>
+                                            <span class="sub">+</span>
+                                        </div>
+                                        <p class="text-body-1 text_muted-color font-3">Anos de Experiência</p>
+                                        <div class="item-shape"><img src="/src/zeng/images/item/small-comet.webp" loading="lazy" decoding="async" alt="item"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ===== END SECTION ABOUT ===== -->
+
+                            <!-- ===== SECTION: SKILLS ===== -->
+                            <div id="skills" class="section-resume spacing-1 section parallax-bg">
+                                <div class="heading-section mb_44 reveal">
+                                    <div class="tag-heading text-uppercase text-label font-3 letter-spacing-1 mb_30">Stack</div>
+                                    <h3 class="text_white fw-5 split-text effect-blur-fade" data-splitting>Minhas Habilidades</h3>
+                                </div>
+
+                                <!-- Skills grid clean -->
+                                <div class="tech-grid reveal">
+                                    <div class="tech-chip">
+                                        <img src="https://img.icons8.com/color/48/figma--v1.png" alt="Figma">
+                                        <span>Figma</span>
+                                    </div>
+                                    <div class="tech-chip">
+                                        <img src="https://img.icons8.com/color/48/react-native.png" alt="React">
+                                        <span>React / Next.js</span>
+                                    </div>
+                                    <div class="tech-chip">
+                                        <img src="https://img.icons8.com/color/48/wordpress.png" alt="WordPress">
+                                        <span>WordPress</span>
+                                    </div>
+                                    <div class="tech-chip">
+                                        <img src="https://img.icons8.com/color/48/webflow.png" alt="Webflow">
+                                        <span>Webflow</span>
+                                    </div>
+                                    <div class="tech-chip">
+                                        <img src="https://img.icons8.com/color/48/adobe-photoshop.png" alt="Photoshop">
+                                        <span>Photoshop</span>
+                                    </div>
+                                    <div class="tech-chip">
+                                        <img src="https://img.icons8.com/color/48/javascript.png" alt="JavaScript">
+                                        <span>JavaScript</span>
+                                    </div>
+                                    <div class="tech-chip">
+                                        <img src="https://img.icons8.com/color/48/html-5--v1.png" alt="HTML5">
+                                        <span>HTML5 / CSS3</span>
+                                    </div>
+                                    <div class="tech-chip">
+                                        <img src="https://img.icons8.com/color/48/tailwind_css.png" alt="Tailwind">
+                                        <span>Tailwind CSS</span>
+                                    </div>
+                                    <div class="tech-chip">
+                                        <img src="https://img.icons8.com/color/48/elementor.png" alt="Elementor">
+                                        <span>Elementor Pro</span>
+                                    </div>
+                                </div>
+
+                                <!-- Barras de progresso das principais tech -->
+                                <div style="margin-top: 40px;">
+                                    <div class="skill-item reveal">
+                                        <div class="skill-header"><span class="skill-name">Design de Interface (UI/UX)</span><span class="skill-pct">90%</span></div>
+                                        <div class="skill-track"><div class="skill-bar" style="--w:90%"></div></div>
+                                    </div>
+                                    <div class="skill-item reveal reveal-delay-1">
+                                        <div class="skill-header"><span class="skill-name">Landing Pages & Conversão</span><span class="skill-pct">95%</span></div>
+                                        <div class="skill-track"><div class="skill-bar" style="--w:95%"></div></div>
+                                    </div>
+                                    <div class="skill-item reveal reveal-delay-2">
+                                        <div class="skill-header"><span class="skill-name">Webflow & WordPress</span><span class="skill-pct">85%</span></div>
+                                        <div class="skill-track"><div class="skill-bar" style="--w:85%"></div></div>
+                                    </div>
+                                    <div class="skill-item reveal reveal-delay-3">
+                                        <div class="skill-header"><span class="skill-name">Front-end (React/Next.js)</span><span class="skill-pct">80%</span></div>
+                                        <div class="skill-track"><div class="skill-bar" style="--w:80%"></div></div>
+                                    </div>
+                                    <div class="skill-item reveal reveal-delay-4">
+                                        <div class="skill-header"><span class="skill-name">Copywriting para Vendas</span><span class="skill-pct">75%</span></div>
+                                        <div class="skill-track"><div class="skill-bar" style="--w:75%"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ===== END SKILLS ===== -->
+
+                            <!-- ===== SECTION: SERVICES ===== -->
+                            <div id="services" class="section-service section spacing-1 parallax-bg">
+                                <div class="heading-section mb_43 reveal">
+                                    <div class="tag-heading text-uppercase text-label font-3 letter-spacing-1 mb_33">Soluções</div>
+                                    <h3 class="text_white fw-5 split-text effect-blur-fade" data-splitting>Serviços Que Entrego</h3>
+                                         <div class="service-item area-effect scrolling-effect effectBottom reveal">
+                                    <div class="content-inner d-flex align-items-center justify-content-between">
+                                        <div class="d-flex align-items-center content">
+                                            <span class="number text-label text_muted-color font-3">01/</span>
+                                            <h5 class="text_white font-4"><a href="#contact" class="link">Landing Pages de Alta Conversão</a></h5>
+                                        </div>
+                                        <a href="#contact" class="btn-arrow"><i class="icon-ArrowRight"></i></a>
+                                        <div class="item-shape spotlight"><img src="/src/zeng/images/item/small-comet.webp" loading="lazy" decoding="async" alt="item"></div>
+                                    </div>
+                                    <div class="img-hover"><img src="./src/img/saas.png" width="140" height="140" alt="Landing Pages"></div>
+                                </div>
+                                <div class="service-item area-effect scrolling-effect effectBottom">
+                                    <div class="content-inner d-flex align-items-center justify-content-between">
+                                        <div class="d-flex align-items-center content">
+                                            <span class="number text-label text_muted-color font-3">02/</span>
+                                            <h5 class="text_white font-4"><a href="#contact" class="link">Sites Institucionais & Premium</a></h5>
+                                        </div>
+                                        <a href="#contact" class="btn-arrow"><i class="icon-ArrowRight"></i></a>
+                                        <div class="item-shape spotlight"><img src="/src/zeng/images/item/small-comet.webp" loading="lazy" decoding="async" alt="item"></div>
+                                    </div>
+                                    <div class="img-hover"><img src="./src/img/christian_silva_mockup_1774193825749.png" width="140" height="140" alt="Sites Institucionais"></div>
+                                </div>
+                                <div class="service-item area-effect scrolling-effect effectBottom">
+                                    <div class="content-inner d-flex align-items-center justify-content-between">
+                                        <div class="d-flex align-items-center content">
+                                            <span class="number text-label text_muted-color font-3">03/</span>
+                                            <h5 class="text_white font-4"><a href="#contact" class="link">UI/UX Design & Prototipagem</a></h5>
+                                        </div>
+                                        <a href="#contact" class="btn-arrow"><i class="icon-ArrowRight"></i></a>
+                                        <div class="item-shape spotlight"><img src="/src/zeng/images/item/small-comet.webp" loading="lazy" decoding="async" alt="item"></div>
+                                    </div>
+                                    <div class="img-hover"><img src="./src/img/dashboard-financas.jpg" width="140" height="140" alt="Design"></div>
+                                </div>
+                                <div class="service-item area-effect scrolling-effect effectBottom">
+                                    <div class="content-inner d-flex align-items-center justify-content-between">
+                                        <div class="d-flex align-items-center content">
+                                            <span class="number text-label text_muted-color font-3">04/</span>
+                                            <h5 class="text_white font-4"><a href="#contact" class="link">Lojas Virtuais & E-commerce</a></h5>
+                                        </div>
+                                        <a href="#contact" class="btn-arrow"><i class="icon-ArrowRight"></i></a>
+                                        <div class="item-shape spotlight"><img src="/src/zeng/images/item/small-comet.webp" loading="lazy" decoding="async" alt="item"></div>
+                                    </div>
+                                    <div class="img-hover"><img src="./src/img/ecomerce.jpg" width="140" height="140" alt="E-commerce"></div>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- ===== END SERVICES ===== -->
+
+                            <!-- ===== SECTION: PORTFOLIO ===== -->
+                            <div id="portfolio" class="section-portfolio spacing-1 stack-element section">
+                                <div class="heading-section mb_42 reveal">
+                                    <div class="tag-heading text-uppercase text-label font-3 letter-spacing-1 mb_34">Trabalhos</div>
+                                    <h3 class="text_white fw-5 split-text effect-blur-fade" data-splitting>Projetos em Destaque</h3>
+                                </div>
+                                <div class="tabs-content-wrap portfolio-sticky-container">
+                                    <div class="portfolio-item element reveal img-reveal-hover glass-card">
+                                        <a href="https://christiansilva.vercel.app/" target="_blank" class="img-style">
+                                            <img decoding="async" loading="lazy" src="./src/img/christian-silva-hero.png" width="690" height="388" alt="Christian Silva - Assessoria Imigratória" style="border-radius:16px;">
+                                            <div class="tag font-3 text-label text-uppercase fw-6 letter-spacing-1">Site Institucional</div>
+                                        </a>
+                                        <div class="portfolio-meta">
+                                            <span><img src="./src/img/webflow-icon.png" loading="lazy" alt="Webflow">Webflow</span>
+                                            <span><img src="./src/img/elementor-icon.png" loading="lazy" alt="Elementor">UI focada em conversão</span>
+                                        </div>
+                                        <h5 class="title font-4 text_white"><a href="https://christiansilva.vercel.app/" target="_blank" class="link">Christian Silva - Assessoria Imigratória</a></h5>
+                                        <div class="item-shape"><img src="/src/zeng/images/item/small-comet.webp" loading="lazy" alt="item"></div>
+                                    </div>
+                                    <div class="portfolio-item element reveal reveal-delay-1 img-reveal-hover glass-card">
+                                        <a href="#" class="img-style">
+                                            <img decoding="async" loading="lazy" src="./src/img/saas.png" width="690" height="388" alt="Landing Page SaaS" style="border-radius:16px;">
+                                            <div class="tag font-3 text-label text-uppercase fw-6 letter-spacing-1">Landing Page</div>
+                                        </a>
+                                        <div class="portfolio-meta">
+                                            <span><img src="./src/img/openai-icon.png" loading="lazy" alt="IA">Copy + IA</span>
+                                            <span><img src="./src/img/make-icon.png" loading="lazy" alt="Make">Automação de leads</span>
+                                        </div>
+                                        <h5 class="title font-4 text_white"><a href="#" class="link">Landing Page Premium para SaaS</a></h5>
+                                        <div class="item-shape"><img src="/src/zeng/images/item/small-comet.webp" loading="lazy" alt="item"></div>
+                                    </div>
+                                    <div class="portfolio-item element reveal reveal-delay-2 img-reveal-hover glass-card">
+                                        <a href="#" class="img-style">
+                                            <img decoding="async" loading="lazy" src="./src/img/dashboard-financas.jpg" width="690" height="388" alt="Site Jurídico" style="border-radius:16px;">
+                                            <div class="tag font-3 text-label text-uppercase fw-6 letter-spacing-1">Corporativo</div>
+                                        </a>
+                                        <div class="portfolio-meta">
+                                            <span><img src="./src/img/supabase-icon.png" loading="lazy" alt="Supabase">Performance</span>
+                                            <span><img src="./src/img/weweb-icon.png" loading="lazy" alt="No-code">Escalável</span>
+                                        </div>
+                                        <h5 class="title font-4 text_white"><a href="#" class="link">Site Institucional para Escritório de Advocacia</a></h5>
+                                        <div class="item-shape"><img src="/src/zeng/images/item/small-comet.webp" loading="lazy" alt="item"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ===== END PORTFOLIO ===== -->
+
+                            <!-- ===== SECTION: TESTIMONIALS ===== -->
+                            <div id="testimonials" class="section-testimonial section spacing-1 reveal">
+                                <div class="heading-section mb_43">
+                                    <div class="tag-heading text-uppercase text-label font-3 letter-spacing-1 mb_30">Depoimentos</div>
+                                    <h3 class="text_white fw-5 split-text effect-blur-fade" data-splitting>O Que Meus Clientes Dizem</h3>
+                                </div>
+                                <div class="swiper sw-single">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="testimonial-item area-effect reveal glass-card">
+                                                <div class="icon"><i class="icon-quote"></i></div>
+                                                <p class="text-body-2 text_white mb_21">"Gabriel automatizou todo nosso processo de onboarding de clientes. Reduzimos de 3 dias para 2 horas! O ROI foi alcançado em menos de 2 meses."</p>
+                                                <div class="testimonial-head">
+                                                    <div class="testimonial-avatar"><img src="./src/img/testimonial-avatar-ricardo.svg" loading="lazy" alt="Ricardo Costa"></div>
+                                                    <div class="athor">
+                                                        <h5 class="name text_white mb_4 font-4"><a href="#" class="link">Ricardo Costa</a></h5>
+                                                        <span class="text-label text-uppercase text_primary-color font-3">CEO, TechFlow Solutions</span>
+                                                    </div>
+                                                </div>
+                                                <div class="item-shape spotlight"><img src="/src/zeng/images/item/small-comet.webp" loading="lazy" decoding="async" alt="item"></div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="testimonial-item area-effect reveal glass-card">
+                                                <div class="icon"><i class="icon-quote"></i></div>
+                                                <p class="text-body-2 text_white mb_21">"O chatbot com IA que Gabriel desenvolveu atende 80% das dúvidas dos clientes automaticamente. Nossa equipe de suporte agora foca em casos complexos."</p>
+                                                <div class="testimonial-head">
+                                                    <div class="testimonial-avatar"><img src="./src/img/testimonial-avatar-mariana.svg" loading="lazy" alt="Mariana Silva"></div>
+                                                    <div class="athor">
+                                                        <h5 class="name text_white mb_4 font-4"><a href="#" class="link">Mariana Silva</a></h5>
+                                                        <span class="text-label text-uppercase text_primary-color font-3">Diretora de Ops, EcoMart</span>
+                                                    </div>
+                                                </div>
+                                                <div class="item-shape spotlight"><img src="/src/zeng/images/item/small-comet.webp" loading="lazy" decoding="async" alt="item"></div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="testimonial-item area-effect reveal glass-card">
+                                                <div class="icon"><i class="icon-quote"></i></div>
+                                                <p class="text-body-2 text_white mb_21">"Dashboard financeiro com integração bancária automática. Economizamos 15h/semana em trabalho manual. Profissional extremamente competente!"</p>
+                                                <div class="testimonial-head">
+                                                    <div class="testimonial-avatar"><img src="./src/img/testimonial-avatar-paulo.svg" loading="lazy" alt="Paulo Andrade"></div>
+                                                    <div class="athor">
+                                                        <h5 class="name text_white mb_4 font-4"><a href="#" class="link">Paulo Andrade</a></h5>
+                                                        <span class="text-label text-uppercase text_primary-color font-3">Fundador, FinanceHub</span>
+                                                    </div>
+                                                </div>
+                                                <div class="item-shape spotlight"><img src="/src/zeng/images/item/small-comet.webp" loading="lazy" decoding="async" alt="item"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="wrap-sw-button d-flex gap_12">
+                                        <div class="sw-button sw-single-prev"><i class="icon-CaretLeft"></i></div>
+                                        <div class="sw-button sw-single-next"><i class="icon-CaretRight"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ===== END TESTIMONIALS ===== -->
+
+                            <!-- ===== SECTION: FAQ ===== -->
+                            <div id="faq" class="section-service section spacing-1 reveal">
+                                <div class="heading-section mb_43">
+                                    <div class="tag-heading text-uppercase text-label font-3 letter-spacing-1 mb_33">Dúvidas</div>
+                                    <h3 class="text_white fw-5 split-text effect-blur-fade">Perguntas Frequentes</h3>
+                                </div>
+                                <div id="faq-container">
+                                    <div class="faq-item reveal">
+                                        <button class="faq-toggle"><span>Qual a diferença entre uma Landing Page e um Site Institucional?</span><i class="icon-CaretDown faq-icon"></i></button>
+                                        <div class="faq-content"><p>A Landing Page é focada em uma única conversão (venda ou lead), ideal por exemplo para tráfego pago. O Site Institucional apresenta toda a empresa, serviços e autoridade de forma mais ampla.</p></div>
+                                    </div>
+                                    <div class="faq-item reveal reveal-delay-1">
+                                        <button class="faq-toggle"><span>Você faz o design ou eu preciso entregar o pronto?</span><i class="icon-CaretDown faq-icon"></i></button>
+                                        <div class="faq-content"><p>Eu cuido de tudo! Desde a estratégia de conversão e UI/UX Design (no Figma) até o desenvolvimento final e otimização de velocidade.</p></div>
+                                    </div>
+                                    <div class="faq-item reveal reveal-delay-2">
+                                        <button class="faq-toggle"><span>Qual o tempo médio de entrega?</span><i class="icon-CaretDown faq-icon"></i></button>
+                                        <div class="faq-content"><p>Landing Pages costumam levar de 5 a 10 dias. Projetos institucionais mais robustos variam de 2 a 4 semanas, dependendo da complexidade das seções.</p></div>
+                                    </div>
+                                    <div class="faq-item reveal reveal-delay-3">
+                                        <button class="faq-toggle"><span>O site será otimizado para celulares?</span><i class="icon-CaretDown faq-icon"></i></button>
+                                        <div class="faq-content"><p>Com certeza. 100% dos meus projetos são desenvolvidos com foco em "Mobile First", garantindo que a experiência no smartphone seja perfeita e rápida.</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ===== END FAQ ===== -->
+
+                            <!-- ===== SECTION: CONTACT ===== -->
+                            <div id="contact" class="section spacing-1 reveal">
+                                <div class="heading-section mb_43">
+                                    <div class="tag-heading text-uppercase text-label font-3 letter-spacing-1 mb_33">Contato</div>
+                                    <h3 class="text_white fw-5 split-text effect-blur-fade" data-splitting>Vamos Construir Algo Juntos?</h3>
+                                </div>
+
+                                <!-- CTAs rápidos -->
+                                <div class="d-flex flex-wrap gap_20 mb_40">
+                                    <a href="https://wa.link/i3m1uw" target="_blank" class="tf-btn style-1 animate-hover-btn btn-glow-cyan">
+                                        <i class="icon-EnvelopeSimple"></i><span>WhatsApp</span>
+                                    </a>
+                                    <a href="https://calendly.com/gabrielmunizdev/30min" target="_blank" class="tf-btn style-border">
+                                        <span class="bg_btn"></span>
+                                        <span class="title">Agendar Diagnóstico Gratuito</span>
+                                        <span class="effect-shine"></span>
+                                    </a>
+                                </div>
+
+                                <!-- Formulário -->
+                                <div class="bs-light-mode" style="padding: 32px; border-radius: 20px; margin-top: 8px;">
+                                    <form id="contact-form" action="https://formsubmit.co/gabrielmunizdev@gmail.com" method="POST">
+                                        <!-- Configurações FormSubmit -->
+                                        <input type="hidden" name="_subject" value="Novo Lead do Portfólio!">
+                                        <input type="hidden" name="_template" value="table">
+                                        <input type="hidden" name="_captcha" value="false">
+                                        <div class="form-group">
+                                            <label>Nome completo</label>
+                                            <input type="text" name="name" required placeholder="Seu nome">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>WhatsApp / E-mail</label>
+                                            <input type="text" name="email_whatsapp" required placeholder="Seu contato preferido">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Sobre seu projeto</label>
+                                            <textarea name="message" required placeholder="Descreva brevemente o que precisa..."></textarea>
+                                        </div>
+                                        <button type="submit" class="tf-btn style-1 animate-hover-btn btn-glow-cyan" style="width:100%;">
+                                            <i class="icon-PaperPlaneTilt"></i><span>Enviar Mensagem</span>
+                                        </button>
+                                        <div id="form-success" style="display:none;margin-top:16px;text-align:center;color:#22d3ee;font-size:14px;">
+                                             Mensagem enviada! Retornarei em breve.
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- Footer info -->
+                                <div style="margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.06); text-align: center;">
+                                    <p class="text_muted-color font-3" style="font-size:13px;">&copy; 2025 Gabriel Muniz. Landing Pages  Sites Institucionais  Integrações CRM</p>
+                                </div>
+                            </div>
+                            <!-- ===== END CONTACT ===== -->
+
+                        </div><!-- /main-content -->
+                    </div><!-- /col -->
+                </div><!-- /row -->
+
+                <!-- right-bar (Nav Desktop) -->
+                <div class="right-bar d-flex flex-column align-items-center">
+                    <div class="nav-right area-effect md-hide">
+                        <ul class="nav-menu list-icon d-flex flex-column">
+                            <li><a class="nav_link active" href="#about"><i class="icon icon-User"></i><span class="tooltip text-caption-1">Sobre</span></a></li>
+                            <li><a class="nav_link" href="#skills"><i class="icon icon-ReadCvLogo"></i><span class="tooltip text-caption-1">Habilidades</span></a></li>
+                            <li><a class="nav_link" href="#services"><i class="icon icon-GearFine"></i><span class="tooltip text-caption-1">Serviços</span></a></li>
+                            <li><a class="nav_link" href="#portfolio"><i class="icon icon-Briefcase"></i><span class="tooltip text-caption-1">Portfolio</span></a></li>
+                            <li><a class="nav_link" href="#testimonials"><i class="icon icon-quote"></i><span class="tooltip text-caption-1">Depoimentos</span></a></li>
+                            <li><a class="nav_link" href="#contact"><i class="icon icon-PaperPlaneTilt"></i><span class="tooltip text-caption-1">Contato</span></a></li>
+                        </ul>
+                        <div class="wrap">
+                            <div class="item-shape spotlight"><img src="/src/zeng/images/item/small-comet.webp" loading="lazy" alt="item"></div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /tf-container -->
+        </div><!-- /wrap-main-content -->
+    </div><!-- /wrapper -->
+
+    <!-- ===== MODAL CURRÍCULO ===== -->
+    <div id="resume-modal">
+        <div class="resume-inner">
+            <div style="padding: 32px; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 20px;">
+                <div class="img-style-avatar" style="width:80px;height:80px;flex-shrink:0;">
+                    <img src="./src/img/gabriel-muniz-perfil.png" alt="Gabriel Muniz">
+                </div>
+                <div>
+                    <h2 style="font-family:var(--font-2,sans-serif);font-size:24px;color:#fff;margin:0 0 4px;">Gabriel Muniz</h2>
+                    <p style="color:#22d3ee;font-size:11px;text-transform:uppercase;letter-spacing:0.15em;margin:0;">Especialista em Landing Pages & Sites</p>
+                    <p style="color:rgba(229,231,235,0.5);font-size:13px;margin:8px 0 0;">gabriel@gabrielmuniz.site  Brasil, 100% Remoto</p>
+                </div>
+                <button id="close-resume" style="margin-left:auto;background:rgba(255,255,255,0.06);border:none;border-radius:8px;padding:8px;color:#aaa;cursor:pointer;font-size:18px;line-height:1;" aria-label="Fechar"></button>
+            </div>
+            <div style="padding: 32px;">
+                <p style="color:#22d3ee;font-size:11px;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">Sobre</p>
+                <p style="color:rgba(229,231,235,0.75);font-size:14px;line-height:1.7;margin-bottom:28px;">5+ anos transformando marcas através do design e tecnologia. Especialista na criação de Landing Pages que convertem e Sites Institucionais que transmitem autoridade e confiança.</p>
+
+                <p style="color:#22d3ee;font-size:11px;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px;">Stack Principal</p>
+                <div class="tech-grid" style="margin-bottom:28px;">
+                    <div class="tech-chip">Figma</div><div class="tech-chip">React</div><div class="tech-chip">Next.js</div>
+                    <div class="tech-chip">Webflow</div><div class="tech-chip">WordPress</div><div class="tech-chip">Elementor</div>
+                    <div class="tech-chip">TypeScript</div><div class="tech-chip">Tailwind</div><div class="tech-chip">Photoshop</div>
+                </div>
+
+                <p style="color:#22d3ee;font-size:11px;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px;">Foco de Atuação</p>
+                <div style="border-left:2px solid rgba(34,211,238,0.3);padding-left:16px;margin-bottom:28px;">
+                    <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+                        <strong style="color:#fff;font-size:14px;">Estrategista de Conversão & Developer</strong>
+                        <span style="color:#22d3ee;font-size:12px;background:rgba(34,211,238,0.1);padding:2px 10px;border-radius:20px;">2021  Atual</span>
+                    </div>
+                    <p style="color:rgba(229,231,235,0.5);font-size:13px;margin:0 0 8px;">Freelancer / Consultoria Individual</p>
+                    <ul style="color:rgba(229,231,235,0.7);font-size:13px;padding-left:16px;line-height:1.8;margin:0;">
+                        <li>Landing Pages otimizadas para tráfego pago (Google/Meta Ads)</li>
+                        <li>Sites Institucionais de alto padrão para empresas e profissionais</li>
+                        <li>Prototipagem de interfaces no Figma com foco em UX</li>
+                        <li>Otimização de performance (Core Web Vitals) e SEO</li>
+                    </ul>
+                </div>
+
+                <a href="https://wa.link/i3m1uw" target="_blank" class="tf-btn style-1 animate-hover-btn btn-glow-cyan" style="width:100%;justify-content:center;">
+                    <i class="icon-EnvelopeSimple"></i><span>Me Contratar via WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- ===== END MODAL ===== -->
+
+    <!-- ZenG Scripts -->
+    <script src="/src/zeng/js/jquery.min.js"></script>
+    <script src="/src/zeng/js/bootstrap.min.js"></script>
+    <script src="/src/zeng/js/gsap.min.js"></script>
+    <script src="/src/zeng/js/ScrollTrigger.min.js"></script>
+    <script src="/src/zeng/js/swiper-bundle.min.js"></script>
+    <script src="/src/zeng/js/jquery.fancybox.js"></script>
+    <script src="/src/zeng/js/splitting.min.js"></script>
+    <script src="/src/zeng/js/odometer.min.js"></script>
+    <script src="/src/zeng/js/main.js"></script>
+    <script src="/src/zeng/js/handleGsap.js"></script>
+    <script src="/src/js/particle-background.js"></script>
+    <script src="/src/js/advanced-animations.js"></script>
+
+    <script>
+        // --- Splitting ---
+        if (typeof Splitting === 'function') {
+            Splitting();
+        }
+
+        // --- Odometer / Counters ---
+        // (handled by main.js via data-number)
+
+        // --- Skill bars ---
+        const skillObs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.querySelectorAll('.skill-bar').forEach(b => b.classList.add('animate'));
+                    skillObs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('#skills').forEach(el => skillObs.observe(el));
+
+        // --- FAQ Accordion ---
+        document.querySelectorAll('.faq-toggle').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('.faq-icon');
+                const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+                document.querySelectorAll('.faq-content').forEach(c => { c.style.maxHeight = '0px'; });
+                document.querySelectorAll('.faq-icon').forEach(i => { i.style.transform = 'rotate(0deg)'; });
+                if (!isOpen) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    if (icon) icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // --- Modal Currículo ---
+        document.getElementById('open-resume')?.addEventListener('click', () => {
+            document.getElementById('resume-modal').classList.add('open');
+        });
+        document.getElementById('close-resume')?.addEventListener('click', () => {
+            document.getElementById('resume-modal').classList.remove('open');
+        });
+        document.getElementById('resume-modal')?.addEventListener('click', function(e) {
+            if (e.target === this) this.classList.remove('open');
+        });
+
+        // --- Formulário Contato ---
+        const form = document.getElementById('contact-form');
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+                if (res.ok) { form.style.display = 'none'; document.getElementById('form-success').style.display = 'block'; }
+            });
+        }
+
+        // ====== SCROLL REVEAL (IntersectionObserver) ======
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // ====== FORCE DARK MODE ======
+        const body = document.body;
+        body.classList.remove('dark-mode');
+        localStorage.setItem('portfolio-theme', 'dark');
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#111111');
+
+        // ====== SWIPER TESTIMONIALS ======
+        if (typeof Swiper !== 'undefined') {
+            const testimonialSwiper = new Swiper('.sw-single', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: '.sw-single-next',
+                    prevEl: '.sw-single-prev',
+                },
+                speed: 800,
+                effect: 'slide',
+            });
+        }
+
+        // ====== CURSOR GLOW EFFECT ======
+        const cursorGlow = document.getElementById('cursor-glow');
+        let glowVisible = false;
+        if (cursorGlow && window.matchMedia('(min-width: 992px)').matches) {
+            document.addEventListener('mousemove', (e) => {
+                cursorGlow.style.left = e.clientX + 'px';
+                cursorGlow.style.top = e.clientY + 'px';
+                if (!glowVisible) {
+                    cursorGlow.style.opacity = '1';
+                    glowVisible = true;
+                }
+            });
+            document.addEventListener('mouseleave', () => {
+                cursorGlow.style.opacity = '0';
+                glowVisible = false;
+            });
+        }
+
+        // ====== FLOATING PARTICLES ======
+        const particlesContainer = document.getElementById('particles');
+        if (particlesContainer && window.matchMedia('(min-width: 992px)').matches) {
+            for (let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                const size = Math.random() * 4 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 20 + 15) + 's';
+                particle.style.animationDelay = (Math.random() * 20) + 's';
+                particle.style.opacity = Math.random() * 0.15 + 0.05;
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // ====== PARALLAX BG via CSS ======
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            document.documentElement.style.setProperty('--scroll-y', scrolled + 'px');
+        }, { passive: true });
+
+        // ====== SMOOTH SCROLL ENHANCEMENT ======
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ====== PAGE LOAD ANIMATION ======
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            requestAnimationFrame(() => {
+                document.body.style.opacity = '1';
+            });
+            // Trigger initial reveals
+            document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    setTimeout(() => el.classList.add('revealed'), 100);
+                }
+            });
+        });
+
+        // ====== PARALLAX BG ON SCROLL ======
+        const parallaxBgs = document.querySelectorAll('.parallax-bg::before');
+        if (parallaxBgs.length > 0) {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.scrollY;
+                document.querySelectorAll('.parallax-bg::before').forEach(el => {
+                    // Using CSS custom property trick
+                    el.style.transform = `translateY(${scrolled * 0.05}px)`;
+                });
+            }, { passive: true });
+        }
+    </script>
+</body>
+</html>
