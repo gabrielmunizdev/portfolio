@@ -60,32 +60,6 @@ export interface Project {
 
 export const projects: readonly Project[] = [
   {
-    slug: 'maison-derme',
-    title: 'Maison Derme',
-    category: 'Clínica Dermatológica',
-    status: 'conceito',
-    problem:
-      'Agenda dependente de indicações e do Instagram. Site antigo, lento e sem páginas por procedimento — invisível para quem busca “dermatologista em Aracaju”.',
-    solution:
-      'Arquitetura com páginas por procedimento, SEO local, agendamento em um toque pelo WhatsApp e copy alinhada à Resolução CFM 2.336/2023.',
-    tech: ['Astro', 'Tailwind CSS', 'Google Business Profile', 'GA4'],
-    result: { kind: 'meta', value: '+35%', label: 'agendamentos originados pelo site em 6 meses' },
-    specs: [
-      { key: 'Carregamento', value: 'abaixo de 2 segundos' },
-      { key: 'Performance', value: 'nota 95+ no Lighthouse' },
-      { key: 'Páginas', value: 'uma por procedimento' },
-    ],
-    year: 2026,
-    preview: {
-      type: 'mock',
-      brand: 'Maison Derme',
-      eyebrow: 'Dermatologia · Aracaju',
-      headline: 'Pele saudável, guiada pela ciência.',
-      cta: 'Agendar avaliação',
-      palette: { bg: '#f5efe8', fg: '#2b2420', accent: '#9c6b4e', muted: '#8a7d72' },
-    },
-  },
-  {
     slug: 'luana-rios',
     title: 'Dra. Luana Rios — Cirurgia Plástica',
     category: 'Cirurgia Plástica',
@@ -108,6 +82,31 @@ export const projects: readonly Project[] = [
       alt: 'Landing page da Dra. Luana Rios — Cirurgia Plástica, em desktop e celular',
       desktop: { base: '/src/assets/img/case-luana-rios-desktop', widths: [720, 1440], width: 1440, height: 900 },
       mobile: { base: '/src/assets/img/case-luana-rios-mobile', widths: [240, 480], width: 480, height: 1039 },
+    },
+  },
+  {
+    slug: 'luiza-negreiros',
+    title: 'Dra. Luiza Negreiros — Dermatologia',
+    category: 'Dermatologia',
+    status: 'cliente',
+    problem:
+      'A clínica já tinha uma identidade forte no espaço físico — a parede vinho, o carvalho ripado e o monograma LN —, mas ela ainda não tinha tradução no digital. O site precisava transmitir a mesma consulta sem pressa que a paciente encontra no consultório.',
+    solution:
+      'Design system extraído da própria clínica (vinho da parede, carvalho e porcelana; Cormorant Garamond e Jost; arcos do monograma) e uma landing com tratamentos em ficha, jornada do paciente em etapas e agendamento pelo WhatsApp.',
+    tech: ['Vite', 'TypeScript', 'HTML estático no build', 'AVIF/WebP'],
+    result: { kind: 'entrega', value: '4', label: 'etapas na jornada do paciente, da escuta ao acompanhamento' },
+    specs: [
+      { key: 'Identidade', value: 'paleta tirada da parede vinho e do carvalho da clínica' },
+      { key: 'Tratamentos', value: 'ficha com indicação e duração' },
+      { key: 'Contato', value: 'agendamento pelo WhatsApp' },
+    ],
+    year: 2026,
+    url: 'https://dra-luiza-negreiros.vercel.app/',
+    preview: {
+      type: 'screenshot',
+      alt: 'Landing page da Dra. Luiza Negreiros — Dermatologia, em desktop e celular',
+      desktop: { base: '/src/assets/img/case-luiza-negreiros-desktop', widths: [720, 1440], width: 1440, height: 900 },
+      mobile: { base: '/src/assets/img/case-luiza-negreiros-mobile', widths: [240, 480], width: 480, height: 1039 },
     },
   },
   {
