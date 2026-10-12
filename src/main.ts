@@ -7,11 +7,11 @@ import './styles/components.css';
 import './styles/motion.css';
 
 import { initHeader, initReveal, initStickyCta } from './scripts/scroll-effects';
-import { initCarousel, initLeadFlow, initTracking } from './scripts/interactions';
+import { initCarousels, initLeadFlow, initTracking } from './scripts/interactions';
 
 initReveal();
 initHeader();
 initStickyCta();
-initCarousel();
+initCarousels();
 initLeadFlow();
 initTracking();

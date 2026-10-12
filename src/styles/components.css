@@ -418,11 +418,63 @@
   background: var(--gold);
 }
 
+/* Mobile: uma coluna, cada item com o mesmo marcador — sem pontos órfãos nem quebras no meio do nome. */
+@media (max-width: 639px) {
+  .segments__list {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .segments__list li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.625rem;
+  }
+
+  .segments__list li::before,
+  .segments__list li + li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 4px;
+    height: 4px;
+    margin: 0;
+    border-radius: 50%;
+    background: var(--gold);
+    transform: translateY(-0.2em);
+  }
+}
+
+
 /* ---------- Método ---------- */
 .method-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 15.5rem), 1fr));
   gap: 3rem clamp(1.5rem, 1rem + 2vw, 3rem);
+}
+
+/* Mobile: as etapas viram carrossel com scroll-snap (o próximo cartão aparece pela borda). */
+@media (max-width: 767px) {
+  .method-grid {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 82%;
+    gap: 1.5rem;
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+  }
+
+  .method-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .method-card {
+    scroll-snap-align: start;
+  }
 }
 
 .method-card {
@@ -909,11 +961,67 @@
   border-radius: 50cqi 50cqi 5cqi 5cqi;
 }
 
-/* ---------- Depoimentos (banda escura) ---------- */
+/* ---------- Princípios (banda escura) ---------- */
+.principles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 3rem clamp(1.5rem, 1rem + 3vw, 4rem);
+}
+
+.principle {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--gold-line);
+}
+
+.principle__num {
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.principle__title {
+  margin-top: 0.75rem;
+  font-size: clamp(1.625rem, 1.4rem + 0.8vw, 2rem);
+  line-height: 1.15;
+}
+
+.principle__text {
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+}
+
+/* ---------- Carrosséis: controles + fio de progresso ---------- */
 .carousel-controls {
   display: flex;
+  align-items: center;
   gap: 0.75rem;
+  margin-top: 2rem;
 }
+
+/* Fio dourado que se preenche conforme o carrossel avança. */
+.carousel-progress {
+  position: relative;
+  flex: 1;
+  height: 1px;
+  margin-right: 0.75rem;
+  background: var(--border);
+}
+
+.carousel-progress::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: scaleX(var(--progress, 0.25));
+  transform-origin: left;
+  transition: transform var(--dur) var(--ease-out);
+}
+
+/* ---------- Depoimentos ---------- */
 
 .carousel-controls[hidden] {
   display: none;

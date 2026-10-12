@@ -30,6 +30,19 @@ export const figureValue = (value: string): Html =>
         : ch,
   )}`;
 
+/** Controles de carrossel (anterior/próximo + fio de progresso). Ficam ocultos até haver overflow. */
+export const carouselControls = (opts: { trackId: string; prev: string; next: string }): Html => html`
+  <div class="carousel-controls" data-carousel-controls hidden>
+    <span class="carousel-progress" data-carousel-progress aria-hidden="true"></span>
+    <button type="button" class="icon-btn" data-carousel-prev aria-controls="${opts.trackId}" aria-label="${opts.prev}">
+      ${icon('chevronLeft')}
+    </button>
+    <button type="button" class="icon-btn" data-carousel-next aria-controls="${opts.trackId}" aria-label="${opts.next}">
+      ${icon('chevronRight')}
+    </button>
+  </div>
+`;
+
 type ButtonVariant = 'primary' | 'ghost' | 'link';
 
 export const buttonLink = (opts: {

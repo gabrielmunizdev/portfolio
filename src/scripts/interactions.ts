@@ -1,27 +1,39 @@
 import { composeLeadMessage } from '../lib/lead-message';
 import { site } from '../data/site';
 
-/** Carrossel de depoimentos baseado em scroll-snap; botões só aparecem se houver overflow. */
-export function initCarousel() {
-  const track = document.querySelector<HTMLElement>('[data-carousel-track]');
-  const controls = document.querySelector<HTMLElement>('[data-carousel-controls]');
-  const prev = document.querySelector<HTMLButtonElement>('[data-carousel-prev]');
-  const next = document.querySelector<HTMLButtonElement>('[data-carousel-next]');
-  if (!track || !controls || !prev || !next) return;
+/**
+ * Carrosséis em scroll-snap ([data-carousel]). Controles e progresso só aparecem quando há overflow —
+ * o mesmo markup vira grade no desktop e carrossel no mobile só por CSS.
+ */
+export function initCarousels() {
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((root) => {
+    const track = root.querySelector<HTMLElement>('[data-carousel-track]');
+    const controls = root.querySelector<HTMLElement>('[data-carousel-controls]');
+    const prev = root.querySelector<HTMLButtonElement>('[data-carousel-prev]');
+    const next = root.querySelector<HTMLButtonElement>('[data-carousel-next]');
+    const progress = root.querySelector<HTMLElement>('[data-carousel-progress]');
+    if (!track) return;
 
-  const step = () => (track.firstElementChild as HTMLElement | null)?.offsetWidth ?? track.clientWidth;
-  const sync = () => {
-    const overflow = track.scrollWidth - track.clientWidth > 4;
-    controls.hidden = !overflow;
-    prev.disabled = track.scrollLeft <= 4;
-    next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 4;
-  };
+    const step = () => {
+      const first = track.firstElementChild as HTMLElement | null;
+      const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      return (first?.offsetWidth ?? track.clientWidth) + gap;
+    };
+    const sync = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      const overflow = max > 4;
+      if (controls) controls.hidden = !overflow;
+      if (prev) prev.disabled = track.scrollLeft <= 4;
+      if (next) next.disabled = track.scrollLeft >= max - 4;
+      progress?.style.setProperty('--progress', String((track.scrollLeft + track.clientWidth) / track.scrollWidth));
+    };
 
-  prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
-  next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
-  track.addEventListener('scroll', sync, { passive: true });
-  new ResizeObserver(sync).observe(track);
-  sync();
+    prev?.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    next?.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+    track.addEventListener('scroll', sync, { passive: true });
+    new ResizeObserver(sync).observe(track);
+    sync();
+  });
 }
 
 /** Fluxo de contato: monta a mensagem do WhatsApp a partir das respostas. */
