@@ -16,6 +16,8 @@ const IMAGES = [
   { src: 'gabriel-muniz-perfil.png', name: 'gabriel-muniz', widths: [360, 720], extract: { left: 0, top: 40, width: 864, height: 1040 } },
   { src: 'luana-rios-desktop.png', name: 'case-luana-rios-desktop', widths: [720, 1440] },
   { src: 'luana-rios-mobile.png', name: 'case-luana-rios-mobile', widths: [240, 480] },
+  { src: 'luiza-negreiros-desktop.png', name: 'case-luiza-negreiros-desktop', widths: [720, 1440] },
+  { src: 'luiza-negreiros-mobile.png', name: 'case-luiza-negreiros-mobile', widths: [240, 480] },
 ];
 
 await fs.mkdir(OUT, { recursive: true });
