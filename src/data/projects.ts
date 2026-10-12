@@ -90,7 +90,6 @@ export const projects: readonly Project[] = [
     title: 'Dra. Luana Rios — Cirurgia Plástica',
     category: 'Cirurgia Plástica',
     status: 'cliente',
-    inProgress: true,
     problem:
       'Marca já consolidada — o monograma LR em ouro — e um site antigo que não acompanhava o cuidado da consulta. Toda a comunicação precisava seguir, linha a linha, as regras de publicidade médica da Resolução CFM 2.336/2023.',
     solution:
@@ -103,6 +102,7 @@ export const projects: readonly Project[] = [
       { key: 'Credenciais', value: 'CRM e RQE no hero, na faixa e no rodapé' },
     ],
     year: 2026,
+    url: 'https://luana-rios.vercel.app/',
     preview: {
       type: 'screenshot',
       alt: 'Landing page da Dra. Luana Rios — Cirurgia Plástica, em desktop e celular',
