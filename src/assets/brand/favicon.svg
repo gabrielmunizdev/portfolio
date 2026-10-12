@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Monograma GM/ em grade de pixel: preto industrial, traço branco, barra verde terminal. -->
+  <rect width="32" height="32" fill="#0a0a0a"/>
+  <g fill="none" stroke="#ededed" stroke-width="2.6" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M11.5 10.5H5.5V21.5H11.5V16.5H8.8"/>
+    <path d="M14.5 21.5V10.5L18 15.5L21.5 10.5V21.5"/>
+  </g>
+  <path d="M28.6 9.5L25 22.5" stroke="#4ade80" stroke-width="2.6" stroke-linecap="square"/>
+</svg>
