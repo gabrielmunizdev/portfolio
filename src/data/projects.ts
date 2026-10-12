@@ -52,6 +52,8 @@ export interface Project {
    */
   specs: readonly { key: string; value: string }[];
   year: number;
+  /** Projeto real ainda não publicado: a UI mostra "Em desenvolvimento" em vez de "Projeto entregue". */
+  inProgress?: boolean;
   url?: string;
   preview: ScreenshotPreview | MockPreview;
 }
@@ -84,28 +86,28 @@ export const projects: readonly Project[] = [
     },
   },
   {
-    slug: 'christian-silva',
-    title: 'Christian Silva — Assessoria Imigratória',
-    category: 'Consultoria Premium',
+    slug: 'luana-rios',
+    title: 'Dra. Luana Rios — Cirurgia Plástica',
+    category: 'Cirurgia Plástica',
     status: 'cliente',
+    inProgress: true,
     problem:
-      'Serviço de alto ticket que precisava transmitir segurança e autoridade para leads que nunca conheceram o consultor pessoalmente.',
+      'Marca já consolidada — o monograma LR em ouro — e um site antigo que não acompanhava o cuidado da consulta. Toda a comunicação precisava seguir, linha a linha, as regras de publicidade médica da Resolução CFM 2.336/2023.',
     solution:
-      'Site institucional com narrativa de autoridade, explicação do processo, depoimentos e CTA de WhatsApp presente em todas as dobras.',
-    tech: ['React', 'Vite', 'Tailwind CSS', 'Vercel'],
-    result: { kind: 'entrega', value: '1 toque', label: 'do primeiro clique à conversa no WhatsApp' },
+      'Design system extraído do próprio logo (porcelana, ouro e espresso; Marcellus e Jost; arcos da silhueta) e uma landing que vai da avaliação à alta, explica o que cada cirurgia pode e não pode fazer e mantém CRM e RQE visíveis em toda a página.',
+    tech: ['HTML e CSS sob medida', 'Design system próprio', 'AVIF/WebP'],
+    result: { kind: 'entrega', value: '0', label: 'termos vedados pela CFM na copy, verificados por lint automático' },
     specs: [
-      { key: 'Construção', value: 'React + Vite' },
-      { key: 'Hospedagem', value: 'Vercel, rede global' },
-      { key: 'Contato', value: 'WhatsApp em todas as dobras' },
+      { key: 'Identidade', value: 'design system extraído do monograma da marca' },
+      { key: 'Conformidade', value: 'checklist da CFM 2.336/2023, artigo por artigo' },
+      { key: 'Credenciais', value: 'CRM e RQE no hero, na faixa e no rodapé' },
     ],
-    year: 2025,
-    url: 'https://christiansilva.vercel.app/',
+    year: 2026,
     preview: {
       type: 'screenshot',
-      alt: 'Página inicial do site Christian Silva — Assessoria Imigratória, em desktop e celular',
-      desktop: { base: '/src/assets/img/case-christian-silva-desktop', widths: [720, 1440], width: 1440, height: 900 },
-      mobile: { base: '/src/assets/img/case-christian-silva-mobile', widths: [240, 480], width: 480, height: 1039 },
+      alt: 'Landing page da Dra. Luana Rios — Cirurgia Plástica, em desktop e celular',
+      desktop: { base: '/src/assets/img/case-luana-rios-desktop', widths: [720, 1440], width: 1440, height: 900 },
+      mobile: { base: '/src/assets/img/case-luana-rios-mobile', widths: [240, 480], width: 480, height: 1039 },
     },
   },
   {

@@ -29,12 +29,17 @@ const mockSite = (mock: MockPreview, variant: 'desktop' | 'mobile'): Html => htm
   </div>
 `;
 
+const statusLabel = (project: Project): string =>
+  project.status === 'conceito' ? 'Projeto conceito' : project.inProgress ? 'Em desenvolvimento' : 'Projeto entregue';
+
 const devices = (project: Project): Html => {
   const { preview } = project;
-  const host =
-    preview.type === 'screenshot' && project.url
-      ? new URL(project.url).host
-      : `${preview.type === 'mock' ? preview.brand.toLowerCase().replace(/\s+/g, '') : project.slug} · conceito`;
+  // Barra de endereço: domínio real quando publicado; senão, nome + estágio do projeto.
+  const host = project.url
+    ? new URL(project.url).host
+    : `${preview.type === 'mock' ? preview.brand.toLowerCase().replace(/\s+/g, '') : project.slug} · ${
+        project.status === 'conceito' ? 'conceito' : 'em desenvolvimento'
+      }`;
 
   const desktopScreen =
     preview.type === 'screenshot'
@@ -82,7 +87,7 @@ const caseCard = (project: Project): Html => html`
     <div class="case__media">${devices(project)}</div>
     <div class="case__body">
       <p class="case__meta label">
-        ${project.category} · ${project.status === 'cliente' ? 'Projeto entregue' : 'Projeto conceito'} · ${project.year}
+        ${project.category} · ${statusLabel(project)} · ${project.year}
       </p>
       <h3 class="case__title" id="case-${project.slug}">${project.title}</h3>
       <dl class="case__details">

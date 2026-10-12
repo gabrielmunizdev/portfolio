@@ -14,8 +14,8 @@ const PUBLIC = path.resolve('public');
  */
 const IMAGES = [
   { src: 'gabriel-muniz-perfil.png', name: 'gabriel-muniz', widths: [360, 720], extract: { left: 0, top: 40, width: 864, height: 1040 } },
-  { src: 'christian-silva-desktop.png', name: 'case-christian-silva-desktop', widths: [720, 1440] },
-  { src: 'christian-silva-mobile.png', name: 'case-christian-silva-mobile', widths: [240, 480] },
+  { src: 'luana-rios-desktop.png', name: 'case-luana-rios-desktop', widths: [720, 1440] },
+  { src: 'luana-rios-mobile.png', name: 'case-luana-rios-mobile', widths: [240, 480] },
 ];
 
 await fs.mkdir(OUT, { recursive: true });

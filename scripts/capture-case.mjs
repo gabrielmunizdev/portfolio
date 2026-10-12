@@ -1,11 +1,14 @@
 // Captura screenshots desktop + mobile de um case usando o Chrome instalado.
-// Uso: node scripts/capture-case.mjs <url> <nome-base>
+// Uso: node scripts/capture-case.mjs <url> <nome-base> [ajuste.js]
 // Saída: src/img/<nome-base>-desktop.png e src/img/<nome-base>-mobile.png
+// ajuste.js (opcional): script executado na página antes da captura — ex.: apontar uma imagem para a versão
+// nova enquanto o site do cliente está em produção. Só altera a página carregada, nunca os arquivos do site.
 import puppeteer from 'puppeteer-core';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const [url, name] = process.argv.slice(2);
+const [url, name, prepareFile] = process.argv.slice(2);
+const prepare = prepareFile ? fs.readFileSync(prepareFile, 'utf8') : null;
 if (!url || !name) {
   console.error('Uso: node scripts/capture-case.mjs <url> <nome-base>');
   process.exit(1);
@@ -39,6 +42,10 @@ try {
     await page.setViewport(viewport);
     await page.goto(url, { waitUntil: 'networkidle0', timeout: 60_000 });
     await page.addStyleTag({ content: HIDE_OVERLAYS });
+    if (prepare) {
+      await page.evaluate(prepare);
+      await page.waitForNetworkIdle({ idleTime: 500, timeout: 30_000 });
+    }
     await new Promise((r) => setTimeout(r, 2500)); // deixa efeitos de digitação/entrada assentarem
     // Banners/botões fixos ancorados na metade inferior (cookies, WhatsApp flutuante).
     await page.evaluate(() => {
