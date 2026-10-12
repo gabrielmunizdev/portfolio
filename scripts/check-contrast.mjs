@@ -26,8 +26,10 @@ const ratio = (a, b) => {
 const TEXT = ['text', 'text-muted', 'text-subtle', 'accent'];
 const BACKGROUNDS = ['bg', 'bg-tint', 'surface', 'surface-2'];
 
-const dark = readTheme(':root');
-const themes = { escuro: dark, claro: { ...dark, ...readTheme(":root[data-theme='light']") } };
+// Tema único (claro). Se houver `:root[data-theme='dark']`, ele também é verificado.
+const base = readTheme(':root');
+const themes = { principal: base };
+if (css.includes(":root[data-theme='dark']")) themes.escuro = { ...base, ...readTheme(":root[data-theme='dark']") };
 
 let failures = 0;
 for (const [name, t] of Object.entries(themes)) {
@@ -36,6 +38,7 @@ for (const [name, t] of Object.entries(themes)) {
     ...TEXT.flatMap((fg) => BACKGROUNDS.map((bg) => [fg, bg])),
     ['btn-ink', 'btn-bg'],
     ['btn-ink', 'btn-bg-hover'],
+    ...(t['band-bg'] ? [['band-text', 'band-bg'], ['band-muted', 'band-bg'], ['band-gold', 'band-bg']] : []),
   ];
   for (const [fg, bg] of pairs) {
     const r = ratio(t[fg], t[bg]);

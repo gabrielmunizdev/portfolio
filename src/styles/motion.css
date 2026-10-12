@@ -1,11 +1,11 @@
 /* ==========================================================================
-   Movimento — curto, preciso, só transform/opacity/clip (compositor).
+   Movimento — sereno, sem bounce; só transform/opacity/clip (compositor).
    ========================================================================== */
 
 /* Reveal só esconde conteúdo quando o JS está ativo (classe .js no <html>). */
 .js .reveal {
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(14px);
   transition:
     opacity var(--dur-slow) var(--ease-out) var(--delay, 0ms),
     transform var(--dur-slow) var(--ease-out) var(--delay, 0ms);
@@ -17,7 +17,7 @@
 }
 
 .hero-in {
-  animation: hero-in 560ms var(--ease-out) var(--delay, 0ms) both;
+  animation: hero-in 720ms var(--ease-out) var(--delay, 0ms) both;
 }
 
 @keyframes hero-in {
@@ -32,33 +32,6 @@
   from {
     clip-path: inset(0 0 100% 0);
     transform: translateY(0.12em);
-  }
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 var(--accent-line);
-  }
-
-  70%,
-  100% {
-    box-shadow: 0 0 0 6px transparent;
-  }
-}
-
-@keyframes scan {
-  from {
-    transform: translateY(-100%);
-  }
-
-  to {
-    transform: translateY(100%);
   }
 }
 

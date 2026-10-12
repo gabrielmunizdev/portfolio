@@ -69,9 +69,9 @@ export const projects: readonly Project[] = [
     tech: ['Astro', 'Tailwind CSS', 'Google Business Profile', 'GA4'],
     result: { kind: 'meta', value: '+35%', label: 'agendamentos originados pelo site em 6 meses' },
     specs: [
-      { key: 'lcp', value: '< 2.0s' },
-      { key: 'lighthouse', value: '95+' },
-      { key: 'páginas', value: '1 por procedimento' },
+      { key: 'Carregamento', value: 'abaixo de 2 segundos' },
+      { key: 'Performance', value: 'nota 95+ no Lighthouse' },
+      { key: 'Páginas', value: 'uma por procedimento' },
     ],
     year: 2026,
     preview: {
@@ -95,9 +95,9 @@ export const projects: readonly Project[] = [
     tech: ['React', 'Vite', 'Tailwind CSS', 'Vercel'],
     result: { kind: 'entrega', value: '1 toque', label: 'do primeiro clique à conversa no WhatsApp' },
     specs: [
-      { key: 'build', value: 'Vite + React' },
-      { key: 'deploy', value: 'Vercel edge' },
-      { key: 'cta', value: 'WhatsApp em todas as dobras' },
+      { key: 'Construção', value: 'React + Vite' },
+      { key: 'Hospedagem', value: 'Vercel, rede global' },
+      { key: 'Contato', value: 'WhatsApp em todas as dobras' },
     ],
     year: 2025,
     url: 'https://christiansilva.vercel.app/',
@@ -120,9 +120,9 @@ export const projects: readonly Project[] = [
     tech: ['Next.js', 'Meta Pixel + CAPI', 'Google Ads', 'Vercel'],
     result: { kind: 'meta', value: '−40%', label: 'no custo por consulta agendada' },
     specs: [
-      { key: 'tracking', value: 'Pixel + CAPI server-side' },
-      { key: 'pré-qualificação', value: '3 perguntas' },
-      { key: 'lcp', value: '< 2.0s' },
+      { key: 'Mensuração', value: 'Meta Pixel + API de Conversões' },
+      { key: 'Pré-qualificação', value: 'três perguntas antes do WhatsApp' },
+      { key: 'Carregamento', value: 'abaixo de 2 segundos' },
     ],
     year: 2026,
     preview: {
@@ -146,9 +146,9 @@ export const projects: readonly Project[] = [
     tech: ['Webflow', 'Schema.org', 'Google Business Profile', 'Agenda online'],
     result: { kind: 'meta', value: '3×', label: 'contatos qualificados vindos da busca orgânica' },
     specs: [
-      { key: 'schema', value: 'MedicalClinic + FAQPage' },
-      { key: 'lighthouse', value: '95+' },
-      { key: 'agenda', value: 'integrada' },
+      { key: 'Google', value: 'dados estruturados de clínica' },
+      { key: 'Performance', value: 'nota 95+ no Lighthouse' },
+      { key: 'Agenda', value: 'integrada ao site' },
     ],
     year: 2026,
     preview: {

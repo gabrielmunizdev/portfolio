@@ -1,42 +1,6 @@
 import { composeLeadMessage } from '../lib/lead-message';
 import { site } from '../data/site';
 
-/** Brilho que acompanha o ponteiro nos cards (atualiza só variáveis CSS, 1x por frame). */
-export function initGlowCards() {
-  if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-  let frame = 0;
-  document.addEventListener(
-    'pointermove',
-    (event) => {
-      const card = (event.target as Element | null)?.closest<HTMLElement>('.glow-card');
-      if (!card) return;
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        const rect = card.getBoundingClientRect();
-        card.style.setProperty('--mx', `${event.clientX - rect.left}px`);
-        card.style.setProperty('--my', `${event.clientY - rect.top}px`);
-      });
-    },
-    { passive: true },
-  );
-}
-
-/** Relógio local no indicador de status do Hero (hora de Aracaju), atualizado a cada minuto. */
-export function initClock() {
-  const el = document.querySelector<HTMLElement>('[data-clock]');
-  if (!el) return;
-  const format = new Intl.DateTimeFormat('pt-BR', {
-    timeZone: el.dataset.tz,
-    hour: '2-digit',
-    minute: '2-digit',
-  });
-  const tick = () => {
-    el.textContent = `${format.format(new Date())} BRT`;
-    setTimeout(tick, 60_000 - (Date.now() % 60_000));
-  };
-  tick();
-}
-
 /** Carrossel de depoimentos baseado em scroll-snap; botões só aparecem se houver overflow. */
 export function initCarousel() {
   const track = document.querySelector<HTMLElement>('[data-carousel-track]');

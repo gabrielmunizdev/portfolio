@@ -4,14 +4,10 @@ export const site = {
   role: 'Estrategista de Conversão & Web Developer',
   url: 'https://gabrielmunizdev.site',
   location: 'Aracaju/SE',
-  /** Código curto exibido nos indicadores de status (estilo terminal). */
-  locationCode: 'AJU/SE',
-  /** Fuso usado no relógio ao vivo do Hero. */
-  timeZone: 'America/Maceio',
   serviceArea: 'Aracaju/SE e todo o Brasil',
   email: 'gabrielmunizdev@gmail.com',
   calendly: 'https://calendly.com/gabrielmunizdev/30min',
-  availability: 'Disponível para Q4/26',
+  availability: 'Agenda aberta para o 4º trimestre',
   responseTime: 'Resposta em até 24h úteis',
   whatsapp: {
     number: '5512996545144',
@@ -23,12 +19,14 @@ export const site = {
     { label: 'GitHub', href: 'https://github.com/gabrielmunizdev', icon: 'github' },
     { label: 'X (Twitter)', href: 'https://twitter.com/gabrielmuniz', icon: 'x' },
   ],
-  /** Stack exibida no crachá do Hero. */
-  stack: ['TypeScript', 'Astro', 'Next.js', 'Vite'],
+  /**
+   * Compromissos de entrega exibidos no Hero. Só promessas que o processo garante (ver FAQ e Método);
+   * números de histórico (projetos, satisfação) entram apenas quando puderem ser comprovados.
+   */
   metrics: [
-    { value: '87+', label: 'Projetos entregues' },
-    { value: '98%', label: 'Clientes satisfeitos' },
-    { value: '5+', label: 'Anos de experiência' },
+    { value: '5–10', label: 'Dias para a landing page no ar' },
+    { value: '95+', label: 'Nota de performance no Lighthouse' },
+    { value: '24h', label: 'Úteis para responder seu contato' },
   ],
 } as const;
 

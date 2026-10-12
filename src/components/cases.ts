@@ -1,7 +1,7 @@
 import { html, type Html } from '../lib/html';
 import { projects, type MockPreview, type Project, type ResultKind } from '../data/projects';
 import { icon } from './icons';
-import { picture, sectionHeading } from './ui';
+import { figureValue, picture, sectionHeading } from './ui';
 
 const RESULT_LABEL: Record<ResultKind, string> = {
   resultado: 'Resultado medido',
@@ -61,58 +61,40 @@ const devices = (project: Project): Html => {
   `;
 };
 
-/** Painel estilo terminal: specs técnicas + resultado do case. */
-const terminal = (project: Project): Html => {
-  const isConcept = project.status === 'conceito';
-  return html`
-    <div class="term" role="group" aria-label="Especificações e resultado">
-      <div class="term__bar mono" aria-hidden="true">
-        <span class="term__dots"><i></i><i></i><i></i></span>
-        <span>~/cases/${project.slug}</span>
-      </div>
-      <dl class="term__body mono">
-        ${project.specs.map(
-          (spec) => html`<div class="term__row">
-            <dt>${spec.key}${isConcept ? html`<span class="term__flag">alvo</span>` : ''}</dt>
-            <dd>${spec.value}</dd>
-          </div>`,
-        )}
-      </dl>
-      <div class="term__result">
-        <span class="term__prompt mono"><span aria-hidden="true">$</span> ${RESULT_LABEL[project.result.kind].toLowerCase()}</span>
-        <strong class="term__value">${project.result.value}</strong>
-        <span class="term__label">${project.result.label}</span>
-      </div>
+/** Ficha do projeto: decisões concretas + resultado (meta ou medido, sempre rotulado). */
+const sheet = (project: Project): Html => html`
+  <div class="sheet">
+    <p class="sheet__title label">Ficha do projeto${project.status === 'conceito' ? ' · metas' : ''}</p>
+    <dl class="sheet__rows">
+      ${project.specs.map((spec) => html`<div><dt>${spec.key}</dt><dd>${spec.value}</dd></div>`)}
+      <div><dt>Tecnologia</dt><dd>${project.tech.join(', ')}</dd></div>
+    </dl>
+    <div class="sheet__result">
+      <span class="label">${RESULT_LABEL[project.result.kind]}</span>
+      <strong class="sheet__value">${figureValue(project.result.value)}</strong>
+      <span class="sheet__label">${project.result.label}</span>
     </div>
-  `;
-};
+  </div>
+`;
 
-const caseCard = (project: Project, index: number): Html => html`
-  <article class="case glow-card reveal" aria-labelledby="case-${project.slug}">
-    <header class="case__meta mono">
-      <span class="case__index">CASE_${String(index + 1).padStart(2, '0')}</span>
-      <span>${project.category}</span>
-      <span class="case__status case__status--${project.status}">
-        <i aria-hidden="true"></i>${project.status === 'cliente' ? 'Entregue' : 'Conceito'}
-      </span>
-      <span class="case__year">${project.year}</span>
-    </header>
-    <div class="case__grid">
-      <div class="case__media">${devices(project)}</div>
-      <div class="case__body">
-        <h3 class="case__title" id="case-${project.slug}">${project.title}</h3>
-        <dl class="case__details">
-          <div><dt class="mono">Problema</dt><dd>${project.problem}</dd></div>
-          <div><dt class="mono">Solução</dt><dd>${project.solution}</dd></div>
-        </dl>
-        <ul class="stack mono" aria-label="Tecnologia">${project.tech.map((t) => html`<li>${t}</li>`)}</ul>
-        ${terminal(project)}
-        ${project.url
-          ? html`<a class="link-arrow mono" href="${project.url}" target="_blank" rel="noopener">
-              Ver site no ar<span class="visually-hidden"> — ${project.title} (abre em nova aba)</span>${icon('arrowUpRight', 16)}
-            </a>`
-          : ''}
-      </div>
+const caseCard = (project: Project): Html => html`
+  <article class="case reveal" aria-labelledby="case-${project.slug}">
+    <div class="case__media">${devices(project)}</div>
+    <div class="case__body">
+      <p class="case__meta label">
+        ${project.category} · ${project.status === 'cliente' ? 'Projeto entregue' : 'Projeto conceito'} · ${project.year}
+      </p>
+      <h3 class="case__title" id="case-${project.slug}">${project.title}</h3>
+      <dl class="case__details">
+        <div><dt class="label">O desafio</dt><dd>${project.problem}</dd></div>
+        <div><dt class="label">A solução</dt><dd>${project.solution}</dd></div>
+      </dl>
+      ${sheet(project)}
+      ${project.url
+        ? html`<a class="link-line" href="${project.url}" target="_blank" rel="noopener">
+            Ver site no ar<span class="visually-hidden"> — ${project.title} (abre em nova aba)</span>${icon('arrowUpRight', 16)}
+          </a>`
+        : ''}
     </div>
   </article>
 `;
@@ -123,7 +105,7 @@ export const cases = () => html`
       ${sectionHeading({
         id: 'cases-title',
         eyebrow: 'Cases',
-        index: '02',
+        index: 'II',
         title: html`Presença digital à altura de <em>marcas premium.</em>`,
         lead: 'Projetos entregues e estudos conceito que mostram o método aplicado a clínicas, médicos e serviços de alto ticket.',
       })}

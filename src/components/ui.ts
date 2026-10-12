@@ -2,7 +2,7 @@ import { html, type Html } from '../lib/html';
 import type { ResponsiveImage } from '../data/projects';
 import { icon, type IconName } from './icons';
 
-/** Cabeçalho padrão das seções: índice + eyebrow (mono) + título + subtítulo opcional. */
+/** Cabeçalho padrão das seções: numeral romano + rótulo em versalete + título serif + subtítulo opcional. */
 export const sectionHeading = (opts: {
   id: string;
   index: string;
@@ -11,13 +11,26 @@ export const sectionHeading = (opts: {
   lead?: string;
 }): Html => html`
   <header class="section-heading reveal">
-    <p class="eyebrow mono"><span class="eyebrow__index">[${opts.index}]</span>${opts.eyebrow}</p>
+    <p class="eyebrow"><span class="eyebrow__num">${opts.index}</span>${opts.eyebrow}</p>
     <h2 id="${opts.id}" class="section-title">${opts.title}</h2>
     ${opts.lead ? html`<p class="section-lead">${opts.lead}</p>` : ''}
   </header>
 `;
 
-type ButtonVariant = 'primary' | 'ghost';
+/**
+ * Número de destaque em serif: sinais (+ − % ×) saem em sans sobrescrita e o traço de intervalo (–) em sans
+ * na altura média — os traços finos da didone somem nesses glifos.
+ */
+export const figureValue = (value: string): Html =>
+  html`${[...value].map((ch) =>
+    ch === '–'
+      ? html`<span class="sym sym--range">${ch}</span>`
+      : /[+−%×]/.test(ch)
+        ? html`<span class="sym">${ch}</span>`
+        : ch,
+  )}`;
+
+type ButtonVariant = 'primary' | 'ghost' | 'link';
 
 export const buttonLink = (opts: {
   href: string;

@@ -7,7 +7,12 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid transparent;
+  transition: background-color var(--dur) ease, border-color var(--dur) ease;
+}
+
+.site-header.is-scrolled {
+  border-bottom-color: var(--border);
   background: var(--header-bg);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
@@ -17,67 +22,59 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  min-height: 3.75rem;
+  gap: 1.5rem;
+  min-height: 4.75rem;
 }
 
 .brand {
   display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
+  flex-direction: column;
+  justify-content: center;
   min-height: var(--tap);
-}
-
-.brand__mark {
-  display: grid;
-  place-items: center;
-  height: 1.75rem;
-  padding-inline: 0.4rem;
-  border: 1px solid var(--border-strong);
-  font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  grid-auto-flow: column;
-  transition: border-color var(--dur) ease;
-}
-
-.brand__mark span {
-  color: var(--accent);
-}
-
-.brand:hover .brand__mark {
-  border-color: var(--border-hot);
+  line-height: 1.15;
 }
 
 .brand__name {
-  font-weight: 600;
-  font-size: var(--fs-sm);
+  font-family: var(--font-display);
+  font-size: 1.375rem;
   letter-spacing: -0.01em;
   white-space: nowrap;
 }
 
+.brand__role {
+  color: var(--text-subtle);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
 .site-nav ul {
   display: flex;
+  gap: 0.25rem;
 }
 
 .site-nav a {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
   min-height: var(--tap);
   padding-inline: 0.875rem;
   color: var(--text-muted);
-  font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  letter-spacing: var(--tracking-mono);
-  text-transform: uppercase;
+  font-size: var(--fs-sm);
   transition: color var(--dur-fast) ease;
 }
 
-.site-nav__index {
-  color: var(--text-subtle);
-  transition: color var(--dur-fast) ease;
+/* Fio dourado sob o item ativo. */
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  inset: auto 0.875rem 0.75rem;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur) var(--ease-out);
 }
 
 .site-nav a:hover,
@@ -85,19 +82,9 @@
   color: var(--text);
 }
 
-.site-nav a[aria-current='true'] .site-nav__index {
-  color: var(--accent);
-}
-
-.site-header__actions {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-:root[data-theme='dark'] .theme-toggle__moon,
-:root[data-theme='light'] .theme-toggle__sun {
-  display: none;
+.site-nav a:hover::after,
+.site-nav a[aria-current='true']::after {
+  transform: scaleX(1);
 }
 
 @media (max-width: 959px) {
@@ -106,7 +93,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 639px) {
   .site-header .site-header__cta {
     display: none;
   }
@@ -115,36 +102,64 @@
 /* ---------- Seções ---------- */
 .section {
   padding-block: var(--section-space);
-  border-top: 1px solid var(--border);
 }
 
 .section--tinted {
   background: var(--bg-tint);
 }
 
+/* A única banda escura da página. */
+.section--band {
+  --text: var(--band-text);
+  --text-muted: var(--band-muted);
+  --text-subtle: var(--band-muted);
+  --border: rgb(243 237 228 / 0.14);
+  --border-strong: rgb(243 237 228 / 0.32);
+  --gold: var(--band-gold);
+  --accent: var(--band-gold);
+  --focus: var(--band-gold);
+  background: var(--band-bg);
+  color: var(--text);
+}
+
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  color: var(--text-muted);
+  gap: 1rem;
+  color: var(--text-subtle);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
 }
 
-.eyebrow__index {
+.eyebrow__num {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
   color: var(--accent);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+}
+
+.eyebrow__num::after {
+  content: '';
+  width: 2.5rem;
+  height: 1px;
+  background: var(--gold);
 }
 
 .section-heading {
   display: grid;
   gap: 1.5rem;
-  max-width: 52rem;
-  margin-bottom: clamp(3rem, 2rem + 3vw, 5rem);
+  max-width: 48rem;
+  margin-bottom: clamp(3.5rem, 2.5rem + 3vw, 6rem);
 }
 
 .section-title {
   font-size: var(--fs-h2);
-  font-weight: 500;
-  line-height: var(--lh-tight);
+  line-height: var(--lh-display);
   letter-spacing: var(--tracking-display);
 }
 
@@ -154,9 +169,10 @@
 }
 
 .section-lead {
-  max-width: 38rem;
+  max-width: var(--measure);
   color: var(--text-muted);
   font-size: var(--fs-lg);
+  font-weight: 300;
 }
 
 .section-heading-row {
@@ -165,7 +181,7 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 1.5rem;
-  margin-bottom: clamp(2.5rem, 2rem + 2vw, 4rem);
+  margin-bottom: clamp(3rem, 2rem + 3vw, 5rem);
 }
 
 .section-heading-row .section-heading {
@@ -174,14 +190,15 @@
 
 /* ---------- Rodapé ---------- */
 .site-footer {
-  padding-top: 4rem;
+  padding-top: clamp(4rem, 3rem + 4vw, 6rem);
   border-top: 1px solid var(--border);
+  background: var(--bg-tint);
   overflow: hidden;
 }
 
 .site-footer__inner {
   display: grid;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 @media (min-width: 768px) {
@@ -192,8 +209,8 @@
 }
 
 .site-footer__brand p {
-  max-width: 28rem;
-  margin-top: 1rem;
+  max-width: 26rem;
+  margin-top: 1.25rem;
   color: var(--text-muted);
   font-size: var(--fs-sm);
 }
@@ -207,12 +224,9 @@
   display: inline-flex;
   align-items: center;
   min-height: var(--tap);
-  padding-inline: 0.625rem;
+  padding-inline: 0.75rem;
   color: var(--text-muted);
-  font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  letter-spacing: var(--tracking-mono);
-  text-transform: uppercase;
+  font-size: var(--fs-sm);
   transition: color var(--dur-fast) ease;
 }
 
@@ -225,45 +239,37 @@
   gap: 0.5rem;
 }
 
+/* Assinatura: o nome em escala de capa de revista. */
+.site-footer__wordmark {
+  margin-top: clamp(3rem, 2rem + 4vw, 6rem);
+  padding-inline: var(--gutter);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: clamp(3.25rem, 14vw, 15rem);
+  font-optical-sizing: auto;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  text-align: center;
+  user-select: none;
+  opacity: 0.08;
+}
+
 .site-footer__legal {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 0.5rem 1.5rem;
-  margin-top: 3rem;
-  padding-block: 1.25rem;
-  border-top: 1px solid var(--border);
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--gold-line);
   color: var(--text-subtle);
+  font-size: 0.8125rem;
 }
 
 .site-footer__legal p {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-}
-
-.site-footer__build i {
-  width: 6px;
-  height: 6px;
-  background: var(--accent);
-}
-
-/* Assinatura tipográfica gigante, cortada pela borda inferior. */
-.site-footer__wordmark {
-  margin-bottom: -0.2em;
-  padding-inline: var(--gutter);
-  font-size: clamp(2.5rem, 12.2vw, 13rem);
-  font-weight: 600;
-  line-height: 0.8;
-  letter-spacing: -0.06em;
-  white-space: nowrap;
-  text-align: center;
-  color: var(--surface-2);
-  user-select: none;
-}
-
-.site-footer__wordmark span {
-  color: var(--accent-soft);
 }
 
 /* ---------- CTA fixo (mobile) ---------- */

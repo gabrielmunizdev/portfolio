@@ -17,23 +17,14 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
 
-  <meta name="theme-color" content="#0a0a0a" data-theme-color>
-  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#fbf9f6">
+  <meta name="color-scheme" content="light">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
 
-  <!-- Aplica o tema antes da primeira pintura (evita flash). -->
-  <script>
-    (function () {
-      var stored = null;
-      try { stored = localStorage.getItem('theme'); } catch (e) {}
-      var theme = stored || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-      document.documentElement.dataset.theme = theme;
-      document.documentElement.classList.add('js');
-    })();
-  </script>
+  <script>document.documentElement.classList.add('js');</script>
   <script type="module" src="/src/main.ts"></script>
   <!--render:structured-data-->
 </head>
