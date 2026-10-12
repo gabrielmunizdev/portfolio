@@ -1,0 +1,90 @@
+/* ==========================================================================
+   Design tokens — tema escuro (padrão, preto industrial) e claro (editorial).
+   Um único acento (verde terminal), usado de forma cirúrgica.
+   Contrastes verificados (WCAG AA) com scripts/check-contrast.mjs.
+   ========================================================================== */
+
+:root {
+  /* Tipografia: sans para leitura e títulos, mono para métricas, status e metadados. */
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SFMono-Regular', 'Cascadia Code', Menlo, Consolas, monospace;
+
+  --fs-2xs: 0.6875rem;                                  /* 11px — metadados mono */
+  --fs-xs: 0.75rem;                                     /* 12px — rótulos mono */
+  --fs-sm: 0.9375rem;                                   /* 15px */
+  --fs-base: 1.0625rem;                                 /* 17px — corpo */
+  --fs-lg: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+  --fs-h3: clamp(1.375rem, 1.2rem + 0.8vw, 1.875rem);
+  --fs-h2: clamp(2.25rem, 1.5rem + 3.2vw, 4.5rem);
+  --fs-h1: clamp(2.625rem, 1.5rem + 4.4vw, 5.25rem);
+
+  --lh-tight: 0.98;
+  --lh-snug: 1.25;
+  --lh-body: 1.6;
+
+  --tracking-display: -0.045em;
+  --tracking-mono: 0.04em;
+
+  /* Espaçamento e forma — cantos secos. */
+  --gutter: clamp(1rem, 4vw, 2rem);
+  --container: 80rem;
+  --section-space: clamp(5rem, 3rem + 7vw, 10rem);
+  --radius: 2px;
+  --tap: 3rem;                                          /* 48px — alvo de toque mínimo */
+  --grid-size: 64px;
+
+  /* Movimento — curto e preciso. */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 120ms;
+  --dur: 220ms;
+  --dur-slow: 520ms;
+
+  /* Cores — escuro */
+  --bg: #0a0a0a;
+  --bg-tint: #0d0d0d;
+  --surface: #111111;
+  --surface-2: #161616;
+  --border: rgb(255 255 255 / 0.09);
+  --border-strong: rgb(255 255 255 / 0.2);
+  --border-hot: rgb(255 255 255 / 0.42);
+  --grid-line: rgb(255 255 255 / 0.035);
+  --text: #ededed;
+  --text-muted: #a3a3a3;
+  --text-subtle: #8c8c8c;
+  --accent: #4ade80;
+  --accent-strong: #86efac;
+  --accent-soft: rgb(74 222 128 / 0.1);
+  --accent-line: rgb(74 222 128 / 0.45);
+  --btn-bg: #ededed;
+  --btn-bg-hover: #ffffff;
+  --btn-ink: #0a0a0a;
+  --header-bg: rgb(10 10 10 / 0.8);
+  --focus: #4ade80;
+
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --bg: #ffffff;
+  --bg-tint: #fafafa;
+  --surface: #f7f7f7;
+  --surface-2: #f0f0f0;
+  --border: rgb(10 10 10 / 0.1);
+  --border-strong: rgb(10 10 10 / 0.22);
+  --border-hot: rgb(10 10 10 / 0.55);
+  --grid-line: rgb(10 10 10 / 0.04);
+  --text: #0a0a0a;
+  --text-muted: #4a4a4a;
+  --text-subtle: #636363;
+  --accent: #157a3c;
+  --accent-strong: #0f5f2e;
+  --accent-soft: rgb(21 122 60 / 0.08);
+  --accent-line: rgb(21 122 60 / 0.45);
+  --btn-bg: #0a0a0a;
+  --btn-bg-hover: #262626;
+  --btn-ink: #ffffff;
+  --header-bg: rgb(255 255 255 / 0.82);
+  --focus: #157a3c;
+
+  color-scheme: light;
+}
