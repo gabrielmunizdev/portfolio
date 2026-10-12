@@ -4,13 +4,13 @@ import { icon } from './icons';
 import { sectionHeading } from './ui';
 
 export const testimonials = () => html`
-  <section class="section section--tinted" id="depoimentos" aria-labelledby="depoimentos-title">
+  <section class="section section--band" id="depoimentos" aria-labelledby="depoimentos-title">
     <div class="container">
       <div class="section-heading-row">
         ${sectionHeading({
           id: 'depoimentos-title',
           eyebrow: 'Depoimentos',
-          index: '03',
+          index: 'III',
           title: html`Quem já trabalhou <em>comigo.</em>`,
         })}
         <div class="carousel-controls reveal" data-carousel-controls hidden>
@@ -28,12 +28,12 @@ export const testimonials = () => html`
           ${items.map(
             (t, i) => html`
               <li class="carousel__slide" aria-roledescription="slide" aria-label="${i + 1} de ${items.length}">
-                <figure class="testimonial glow-card">
-                  <span class="testimonial__index mono" aria-hidden="true">// ${String(i + 1).padStart(2, '0')}</span>
+                <figure class="testimonial">
+                  <span class="testimonial__mark" aria-hidden="true">“</span>
                   <blockquote class="testimonial__quote"><p>${t.quote}</p></blockquote>
                   <figcaption class="testimonial__author">
                     <img src="${t.avatar}" width="40" height="40" alt="" loading="lazy" decoding="async">
-                    <span><strong>${t.name}</strong><span class="mono">${t.role}</span></span>
+                    <span><strong>${t.name}</strong><span class="label">${t.role}</span></span>
                   </figcaption>
                 </figure>
               </li>

@@ -9,7 +9,7 @@ export const faq = () => html`
       ${sectionHeading({
         id: 'faq-title',
         eyebrow: 'Dúvidas',
-        index: '04',
+        index: 'IV',
         title: html`Perguntas <em>frequentes.</em>`,
         lead: 'O que donos de clínicas e médicos costumam perguntar antes de começar.',
       })}

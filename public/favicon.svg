@@ -1,9 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- Monograma GM/ em grade de pixel: preto industrial, traço branco, barra verde terminal. -->
-  <rect width="32" height="32" fill="#0a0a0a"/>
-  <g fill="none" stroke="#ededed" stroke-width="2.6" stroke-linecap="square" stroke-linejoin="miter">
-    <path d="M11.5 10.5H5.5V21.5H11.5V16.5H8.8"/>
-    <path d="M14.5 21.5V10.5L18 15.5L21.5 10.5V21.5"/>
+  <!-- "G" em Bodoni Moda (vetorizado) dentro de um arco champagne, sobre porcelana. -->
+  <rect width="32" height="32" fill="#fbf9f6"/>
+  <path d="M6.5 31V14.5a9.5 9.5 0 0 1 19 0V31" fill="none" stroke="#b8975f" stroke-width="1.3"/>
+  <g transform="translate(16 21.2) scale(0.66) translate(-16 -18.2)">
+    <path fill="#2a211c" stroke="#2a211c" stroke-width="0.6" stroke-linejoin="round" d="M17.79 21.23L17.79 20.57L25.90 20.57L25.90 21.23L24.08 21.23L24.08 24.50Q23.75 25.20 23.11 26.11Q22.46 27 21.470 27.84Q20.47 28.67 19.07 29.21Q17.68 29.75 15.85 29.75Q12.73 29.75 10.55 28.25Q8.38 26.75 7.24 24.14Q6.10 21.53 6.10 18.20Q6.10 15.70 6.83 13.59Q7.55 11.48 8.90 9.92Q10.25 8.36 12.13 7.50Q14 6.65 16.29 6.65Q17.77 6.65 19.13 7.17Q20.48 7.68 21.50 8.60L23.08 6.95L23.60 6.95L23.60 13.10L23 13.10Q22.94 11.77 22.40 10.71Q21.86 9.65 20.96 8.90Q20.06 8.15 18.940 7.75Q17.81 7.36 16.59 7.36Q14.63 7.36 13.28 8.27Q11.92 9.18 11.10 10.74Q10.29 12.29 9.91 14.22Q9.54 16.16 9.54 18.20Q9.54 20.24 9.81 22.19Q10.09 24.14 10.79 25.71Q11.48 27.29 12.71 28.22Q13.95 29.15 15.85 29.15Q17.24 29.15 18.18 28.71Q19.12 28.28 19.68 27.67Q20.24 27.06 20.54 26.50Q20.84 25.94 20.95 25.70L20.95 21.23Z"/>
   </g>
-  <path d="M28.6 9.5L25 22.5" stroke="#4ade80" stroke-width="2.6" stroke-linecap="square"/>
 </svg>

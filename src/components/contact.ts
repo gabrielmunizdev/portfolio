@@ -27,14 +27,14 @@ export const contact = () => html`
         ${sectionHeading({
           id: 'contato-title',
           eyebrow: 'Próximo passo',
-          index: '05',
+          index: 'V',
           title: html`Vamos desenhar a presença digital que sua clínica <em>merece.</em>`,
           lead: 'Responda duas perguntas rápidas e continue a conversa direto no meu WhatsApp, com a mensagem pronta.',
         })}
         <ul class="contact__benefits reveal">
-          <li><span class="mono" aria-hidden="true">01</span>Diagnóstico gratuito do seu site e do seu Google</li>
-          <li><span class="mono" aria-hidden="true">02</span>Plano de ação priorizado para gerar agendamentos</li>
-          <li><span class="mono" aria-hidden="true">03</span>${site.responseTime}, sem compromisso</li>
+          <li><span aria-hidden="true">I</span>Diagnóstico gratuito do seu site e do seu Google</li>
+          <li><span aria-hidden="true">II</span>Plano de ação priorizado para gerar agendamentos</li>
+          <li><span aria-hidden="true">III</span>${site.responseTime}, sem compromisso</li>
         </ul>
         <div class="contact__alt reveal">
           ${buttonLink({
@@ -49,13 +49,9 @@ export const contact = () => html`
         </div>
       </div>
 
-      <form class="lead-flow glow-card reveal" data-lead-flow
+      <form class="lead-flow reveal" data-lead-flow
             action="https://wa.me/${site.whatsapp.number}" method="get" target="_blank" rel="noopener">
-        <div class="lead-flow__bar mono" aria-hidden="true">
-          <span class="term__dots"><i></i><i></i><i></i></span>
-          <span>diagnostico.sh</span>
-          <span class="lead-flow__ready"><i></i>pronto</span>
-        </div>
+        <p class="lead-flow__kicker label">Três perguntas · menos de um minuto</p>
         <p class="lead-flow__title">Diagnóstico gratuito</p>
         ${choiceGroup('1. Qual é o seu segmento?', 'segmento', segments)}
         ${choiceGroup('2. Qual o principal objetivo agora?', 'objetivo', leadGoals)}
@@ -64,12 +60,12 @@ export const contact = () => html`
           <input id="lead-name" name="nome" type="text" autocomplete="name" placeholder="Ex.: Dra. Ana">
         </div>
         <div class="lead-flow__preview">
-          <span class="lead-flow__preview-label mono">&gt; mensagem que será enviada</span>
+          <span class="lead-flow__preview-label label">Mensagem que será enviada</span>
           <p data-lead-preview aria-live="polite">${composeLeadMessage({})}</p>
         </div>
         <input type="hidden" name="text" value="${composeLeadMessage({})}" data-lead-text>
         <button type="submit" class="btn btn--primary btn--block" data-track="contact_whatsapp">
-          ${icon('whatsapp')}<span>Continuar no WhatsApp</span>
+          <span>Continuar no WhatsApp</span>
         </button>
         <p class="lead-flow__fine">Abre o WhatsApp com a mensagem pronta. Nenhum dado é armazenado neste site.</p>
       </form>

@@ -14,8 +14,8 @@ const PUBLIC = path.resolve('public');
  */
 const IMAGES = [
   { src: 'gabriel-muniz-perfil.png', name: 'gabriel-muniz', widths: [360, 720], extract: { left: 0, top: 40, width: 864, height: 1040 } },
-  { src: 'christian-silva-desktop.png', name: 'case-christian-silva-desktop', widths: [720, 1440] },
-  { src: 'christian-silva-mobile.png', name: 'case-christian-silva-mobile', widths: [240, 480] },
+  { src: 'luana-rios-desktop.png', name: 'case-luana-rios-desktop', widths: [720, 1440] },
+  { src: 'luana-rios-mobile.png', name: 'case-luana-rios-mobile', widths: [240, 480] },
 ];
 
 await fs.mkdir(OUT, { recursive: true });
@@ -43,14 +43,14 @@ const portrait = await sharp(path.join(SRC, 'gabriel-muniz-perfil.png'))
 
 const ogText = Buffer.from(`
 <svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="630" fill="#0d0c0b"/>
-  <rect x="64" y="96" width="56" height="2" fill="#d6b77f"/>
-  <text x="64" y="150" font-family="Georgia, serif" font-size="22" letter-spacing="4" fill="#d6b77f">GABRIEL MUNIZ</text>
-  <text x="64" y="250" font-family="Georgia, serif" font-size="58" fill="#f4efe7">Sites de alto padrão</text>
-  <text x="64" y="320" font-family="Georgia, serif" font-size="58" fill="#f4efe7">para clínicas e</text>
-  <text x="64" y="390" font-family="Georgia, serif" font-size="58" font-style="italic" fill="#d6b77f">negócios premium.</text>
-  <text x="64" y="500" font-family="Arial, sans-serif" font-size="24" fill="#b7aea3">Estratégia de conversão · Design · Performance</text>
-  <text x="64" y="545" font-family="Arial, sans-serif" font-size="24" fill="#b7aea3">Aracaju/SE · Atendimento em todo o Brasil</text>
+  <rect width="1200" height="630" fill="#fbf9f6"/>
+  <rect x="64" y="96" width="56" height="1.5" fill="#b8975f"/>
+  <text x="64" y="150" font-family="Georgia, serif" font-size="22" letter-spacing="5" fill="#7d6036">GABRIEL MUNIZ</text>
+  <text x="64" y="250" font-family="Georgia, serif" font-size="60" fill="#2a211c">Sites de alto padrão</text>
+  <text x="64" y="320" font-family="Georgia, serif" font-size="60" fill="#2a211c">para clínicas e</text>
+  <text x="64" y="390" font-family="Georgia, serif" font-size="60" fill="#6e6259">negócios premium.</text>
+  <text x="64" y="500" font-family="Arial, sans-serif" font-size="24" fill="#5c5149">Estratégia de conversão · Design · Performance</text>
+  <text x="64" y="545" font-family="Arial, sans-serif" font-size="24" fill="#5c5149">Aracaju/SE · Atendimento em todo o Brasil</text>
 </svg>`);
 
 await sharp(ogText)
