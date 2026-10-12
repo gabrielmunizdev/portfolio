@@ -23,6 +23,25 @@ export const methodSteps = [
   },
 ] as const;
 
+/**
+ * Princípios de trabalho (banda escura). Cada um repete um compromisso já descrito no Método e no FAQ —
+ * nada aqui é depoimento ou resultado de terceiros.
+ */
+export const principles = [
+  {
+    title: 'Ética antes de conversão',
+    text: 'Textos dentro da Resolução CFM nº 2.336/2023: sem promessa de resultado, com CRM e RQE visíveis em todo o site. Persuasão nunca passa por cima da norma.',
+  },
+  {
+    title: 'O paciente decide no celular',
+    text: 'Projeto pensado primeiro para a tela pequena: carregamento rápido, leitura confortável e o WhatsApp a um toque em qualquer ponto da página.',
+  },
+  {
+    title: 'Medir para melhorar',
+    text: 'Cada clique de WhatsApp vira um evento no GA4. Você sabe de onde vêm os agendamentos e onde vale investir — sem achismo.',
+  },
+] as const;
+
 export const faqs = [
   {
     question: 'O site respeita as regras de publicidade médica?',

@@ -1,7 +1,7 @@
 import { html } from '../lib/html';
 import { segments } from '../data/site';
 import { methodSteps } from '../data/content';
-import { sectionHeading } from './ui';
+import { carouselControls, sectionHeading } from './ui';
 
 const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI'];
 
@@ -26,7 +26,8 @@ export const method = () => html`
         title: html`Do primeiro clique à <em>consulta agendada.</em>`,
         lead: 'Um site bonito não basta. Cada etapa do projeto existe para que o paciente certo encontre sua clínica, confie e agende — sem atrito.',
       })}
-      <ol class="method-grid">
+      <div class="method" data-carousel>
+      <ol class="method-grid" id="method-track" data-carousel-track tabindex="0" aria-label="Etapas do método">
         ${methodSteps.map(
           (step, i) => html`
             <li class="method-card reveal" style="--delay: ${i * 70}ms">
@@ -40,6 +41,8 @@ export const method = () => html`
           `,
         )}
       </ol>
+      ${carouselControls({ trackId: 'method-track', prev: 'Etapa anterior', next: 'Próxima etapa' })}
+      </div>
     </div>
   </section>
 `;

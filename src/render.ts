@@ -9,6 +9,7 @@ import { hero } from './components/hero';
 import { method, segmentsStrip } from './components/method';
 import { cases } from './components/cases';
 import { testimonials } from './components/testimonials';
+import { principles } from './components/principles';
 import { faq } from './components/faq';
 import { contact } from './components/contact';
 import { footer, stickyCta } from './components/footer';
@@ -45,7 +46,7 @@ const structuredData = () => {
 export function renderPage(): Record<string, string> {
   return {
     header: header().__html,
-    main: [hero(), segmentsStrip(), method(), cases(), testimonials(), faq(), contact()]
+    main: [hero(), segmentsStrip(), method(), cases(), principles(), testimonials(), faq(), contact()]
       .map((s) => s.__html)
       .join('\n'),
     footer: footer().__html + stickyCta().__html,
