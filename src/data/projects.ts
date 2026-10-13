@@ -52,7 +52,10 @@ export interface Project {
    */
   specs: readonly { key: string; value: string }[];
   year: number;
-  /** Projeto real ainda não publicado: a UI mostra "Em desenvolvimento" em vez de "Projeto entregue". */
+  /**
+   * Projeto real ainda não aprovado/publicado em definitivo: a UI mostra "Em desenvolvimento" em vez de
+   * "Projeto entregue" e, se houver `url`, o link vira "Ver prévia".
+   */
   inProgress?: boolean;
   url?: string;
   preview: ScreenshotPreview | MockPreview;
@@ -110,29 +113,28 @@ export const projects: readonly Project[] = [
     },
   },
   {
-    slug: 'instituto-aura',
-    title: 'Instituto Aura',
+    slug: 'christian-vasconcelos',
+    title: 'Dr. Christian Vasconcelos — Cirurgia Plástica',
     category: 'Cirurgia Plástica',
-    status: 'conceito',
+    status: 'cliente',
     problem:
-      'Leads de anúncios chegavam frios: a equipe passava horas no WhatsApp respondendo curiosos e perguntas de preço, sem tempo para os pacientes certos.',
+      'Cirurgião plástico membro titular da SBCP, focado em rinoplastia, face e mama. O site precisava mostrar o rigor do planejamento cirúrgico sem recorrer a antes e depois sensacionalista nem a promessa de resultado.',
     solution:
-      'Landing pages por procedimento com pré-qualificação em 3 perguntas antes do WhatsApp, dúvidas frequentes e jornada pré e pós-operatória.',
-    tech: ['Next.js', 'Meta Pixel + CAPI', 'Google Ads', 'Vercel'],
-    result: { kind: 'meta', value: '−40%', label: 'no custo por consulta agendada' },
+      'Três direções de conceito antes de desenhar. A escolhida, "A marcação", transforma a linha pontilhada e as setas da marcação pré-operatória no sistema do site: um perfil em traço único que se desenha no hero, azul-noite e champagne, Newsreader nos títulos e Schibsted Grotesk no texto.',
+    tech: ['Vite', 'TypeScript', 'SVG animado', 'AVIF/WebP'],
+    result: { kind: 'entrega', value: '3', label: 'direções de conceito apresentadas antes da primeira tela' },
     specs: [
-      { key: 'Mensuração', value: 'Meta Pixel + API de Conversões' },
-      { key: 'Pré-qualificação', value: 'três perguntas antes do WhatsApp' },
-      { key: 'Carregamento', value: 'abaixo de 2 segundos' },
+      { key: 'Conceito', value: 'a marcação pré-operatória como linguagem visual' },
+      { key: 'Credenciais', value: 'SBCP, CRM e RQE no hero' },
+      { key: 'Assinatura', value: 'perfil em traço único que se desenha ao entrar na tela' },
     ],
     year: 2026,
+    url: 'https://christian-vasconcelos.vercel.app/',
     preview: {
-      type: 'mock',
-      brand: 'Instituto Aura',
-      eyebrow: 'Cirurgia Plástica',
-      headline: 'Naturalidade em cada detalhe.',
-      cta: 'Quero uma avaliação',
-      palette: { bg: '#0f1720', fg: '#eef2f6', accent: '#c8a97e', muted: '#93a1b0' },
+      type: 'screenshot',
+      alt: 'Site do Dr. Christian Vasconcelos — Cirurgia Plástica, em desktop e celular',
+      desktop: { base: '/src/assets/img/case-christian-vasconcelos-desktop', widths: [720, 1440], width: 1440, height: 900 },
+      mobile: { base: '/src/assets/img/case-christian-vasconcelos-mobile', widths: [240, 480], width: 480, height: 1039 },
     },
   },
   {
