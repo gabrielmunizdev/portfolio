@@ -97,7 +97,7 @@ const caseCard = (project: Project): Html => html`
       ${sheet(project)}
       ${project.url
         ? html`<a class="link-line" href="${project.url}" target="_blank" rel="noopener">
-            Ver site no ar<span class="visually-hidden"> — ${project.title} (abre em nova aba)</span>${icon('arrowUpRight', 16)}
+            ${project.inProgress ? 'Ver prévia' : 'Ver site no ar'}<span class="visually-hidden"> — ${project.title} (abre em nova aba)</span>${icon('arrowUpRight', 16)}
           </a>`
         : ''}
     </div>

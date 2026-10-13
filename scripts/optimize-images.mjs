@@ -18,6 +18,8 @@ const IMAGES = [
   { src: 'luana-rios-mobile.png', name: 'case-luana-rios-mobile', widths: [240, 480] },
   { src: 'luiza-negreiros-desktop.png', name: 'case-luiza-negreiros-desktop', widths: [720, 1440] },
   { src: 'luiza-negreiros-mobile.png', name: 'case-luiza-negreiros-mobile', widths: [240, 480] },
+  { src: 'christian-vasconcelos-desktop.png', name: 'case-christian-vasconcelos-desktop', widths: [720, 1440] },
+  { src: 'christian-vasconcelos-mobile.png', name: 'case-christian-vasconcelos-mobile', widths: [240, 480] },
 ];
 
 await fs.mkdir(OUT, { recursive: true });
