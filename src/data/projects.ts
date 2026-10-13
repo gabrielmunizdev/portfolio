@@ -117,17 +117,16 @@ export const projects: readonly Project[] = [
     title: 'Dr. Christian Vasconcelos — Cirurgia Plástica',
     category: 'Cirurgia Plástica',
     status: 'cliente',
-    inProgress: true,
     problem:
       'Cirurgião plástico membro titular da SBCP, focado em rinoplastia, face e mama. O site precisava mostrar o rigor do planejamento cirúrgico sem recorrer a antes e depois sensacionalista nem a promessa de resultado.',
     solution:
-      'Três direções de conceito antes de desenhar. A escolhida, "A marcação", transforma a linha pontilhada e as setas da marcação pré-operatória no sistema do site: um perfil em traço único que se desenha no hero, azul-noite e champagne, Schibsted Grotesk e Newsreader.',
+      'Três direções de conceito antes de desenhar. A escolhida, "A marcação", transforma a linha pontilhada e as setas da marcação pré-operatória no sistema do site: um perfil em traço único que se desenha no hero, azul-noite e champagne, Newsreader nos títulos e Schibsted Grotesk no texto.',
     tech: ['Vite', 'TypeScript', 'SVG animado', 'AVIF/WebP'],
     result: { kind: 'entrega', value: '3', label: 'direções de conceito apresentadas antes da primeira tela' },
     specs: [
       { key: 'Conceito', value: 'a marcação pré-operatória como linguagem visual' },
       { key: 'Credenciais', value: 'SBCP, CRM e RQE no hero' },
-      { key: 'Assinatura', value: 'traço que se desenha conforme a rolagem' },
+      { key: 'Assinatura', value: 'perfil em traço único que se desenha ao entrar na tela' },
     ],
     year: 2026,
     url: 'https://christian-vasconcelos.vercel.app/',
